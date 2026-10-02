@@ -47,6 +47,7 @@
             <a href="#universo" data-nav-section="universo">Universo</a>
             <a href="#livros" data-nav-section="livros">Livros</a>
             <a href="#relacoes" data-nav-section="relacoes">Relações</a>
+            <a href="#jojinhas" data-nav-section="jojinhas">Quantas Jojinhas?</a>
             <a href="#sobre" data-nav-section="sobre">Sobre</a>
             <a href="#equipe" data-nav-section="equipe">Equipe</a>
             <a href="https://www.instagram.com/misalvani/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -564,6 +565,59 @@
             </div>
         </section>
 
+
+        <!-- Jojômetro: compara a altura do leitor com uma Jojinha oficial de 1,50 m. -->
+        <section class="jojometro-section section-shell" id="jojinhas">
+            <div class="section-heading reveal">
+                <p class="eyebrow">UNIDADE OFICIAL DE MEDIDA</p>
+                <h2>Descubra quantas Jojinhas de altura você tem</h2>
+                <p>Uma Jojinha possui exatamente <strong>1,50 m</strong>. Informe sua altura para descobrir seu índice oficial de Jojinhas.</p>
+            </div>
+
+            <div class="jojometro-card reveal">
+                <div class="jojometro-controls">
+                    <label for="alturaLeitor">Qual é a sua altura?</label>
+                    <div class="jojometro-input-row">
+                        <input id="alturaLeitor" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 1,78 ou 178" aria-describedby="alturaAjuda">
+                        <button class="btn btn-primary" id="calcularJojinhas" type="button">Calcular</button>
+                    </div>
+                    <small id="alturaAjuda">Você pode digitar em metros (1,78) ou centímetros (178).</small>
+
+                    <div class="jojometro-result" id="jojometroResult" aria-live="polite">
+                        <span class="jojometro-result-label">SEU RESULTADO</span>
+                        <strong id="jojometroMensagem">Digite sua altura para começar.</strong>
+                        <p id="jojometroIndice">A Jojinha oficial está esperando.</p>
+                    </div>
+                </div>
+
+                <div class="height-comparison" id="heightComparison" aria-label="Comparador visual de altura">
+                    <div class="height-scale" aria-hidden="true">
+                        <span style="bottom:100%">220</span>
+                        <span style="bottom:68.18%">150</span>
+                        <span style="bottom:45.45%">100</span>
+                        <span style="bottom:22.73%">50</span>
+                        <span style="bottom:0">0 cm</span>
+                    </div>
+                    <div class="jojo-line" aria-hidden="true"><span>1 JOJINHA · 150 CM</span></div>
+
+                    <div class="height-person jojo-person">
+                        <div class="person-label"><strong>JOJINHA</strong><span>150 cm</span></div>
+                        <div class="person-silhouette female-silhouette" aria-hidden="true">
+                            <span class="sil-head"></span><span class="sil-hair"></span><span class="sil-body"></span><span class="sil-skirt"></span><span class="sil-leg left"></span><span class="sil-leg right"></span>
+                        </div>
+                    </div>
+
+                    <div class="height-person reader-person" id="readerPerson">
+                        <div class="person-label"><strong>VOCÊ</strong><span id="readerHeightLabel">— cm</span></div>
+                        <div class="person-silhouette reader-silhouette" aria-hidden="true">
+                            <span class="sil-head"></span><span class="sil-body"></span><span class="sil-arm left"></span><span class="sil-arm right"></span><span class="sil-leg left"></span><span class="sil-leg right"></span>
+                        </div>
+                    </div>
+                    <div class="height-floor" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sobre a autora -->
         <section class="about-section section-shell" id="sobre">
             <div class="section-heading">
@@ -573,7 +627,7 @@
 
             <div class="about-author">
                 <div class="about-author-photo">
-                    <img src="/static/images/mia.png" alt="Retrato de Mia Salvani, autora de Cisnes de New York" loading="lazy" decoding="async">
+                    <img src="/static/images/foto-nova.png" alt="Retrato de Mia Salvani, autora de Cisnes de New York" loading="lazy" decoding="async">
                 </div>
                 <div class="about-author-copy">
                     <h3>Mia Salvani</h3>
