@@ -1665,4 +1665,67 @@ body.lightbox-open {
         border-radius: 0;
     }
 }
-\n\n/* Jojômetro */\n.jojometro-section { overflow: hidden; }\n.jojometro-card { display:grid; grid-template-columns:minmax(280px,.8fr) minmax(420px,1.2fr); gap:40px; padding:32px; border:1px solid rgba(181,156,255,.16); background:linear-gradient(145deg,rgba(139,92,246,.08),rgba(8,8,13,.82)); }\n.jojometro-controls { align-self:center; }\n.jojometro-controls label { display:block; margin-bottom:10px; font-weight:700; font-size:1.05rem; }\n.jojometro-input-row { display:flex; gap:10px; }\n.jojometro-input-row input { min-width:0; flex:1; padding:14px 16px; border:1px solid rgba(255,255,255,.16); background:rgba(0,0,0,.28); color:#fff; font:inherit; outline:none; }\n.jojometro-input-row input:focus { border-color:var(--blue-soft); box-shadow:0 0 0 3px rgba(139,92,246,.12); }\n.jojometro-controls small { display:block; margin-top:9px; color:var(--muted); }\n.jojometro-result { margin-top:26px; padding:20px; border-left:3px solid var(--blue-soft); background:rgba(255,255,255,.035); }\n.jojometro-result-label { display:block; margin-bottom:8px; color:var(--blue-soft); font-size:.72rem; font-weight:800; letter-spacing:.16em; }\n.jojometro-result strong { display:block; font-size:clamp(1.15rem,2vw,1.55rem); line-height:1.25; }\n.jojometro-result p { margin:8px 0 0; color:var(--muted); }\n.jojometro-result.is-error { border-left-color:#ff668a; }\n\n.height-comparison { --chart-height:420px; position:relative; height:var(--chart-height); min-width:0; border:1px solid rgba(255,255,255,.09); background:repeating-linear-gradient(to top,rgba(255,255,255,.045) 0,rgba(255,255,255,.045) 1px,transparent 1px,transparent calc(var(--chart-height) / 22)); overflow:hidden; }\n.height-scale { position:absolute; inset:18px auto 18px 10px; width:42px; color:rgba(255,255,255,.42); font-size:.65rem; }\n.height-scale span { position:absolute; transform:translateY(50%); }\n.height-floor { position:absolute; left:48px; right:12px; bottom:18px; height:2px; background:rgba(255,255,255,.35); }\n.jojo-line { position:absolute; z-index:1; left:48px; right:12px; bottom:calc(18px + (100% - 36px) * .6818); border-top:1px dashed rgba(181,156,255,.72); }\n.jojo-line span { position:absolute; right:4px; bottom:5px; padding:3px 7px; background:#121018; color:var(--blue-soft); font-size:.62rem; font-weight:800; letter-spacing:.08em; }\n.height-person { position:absolute; z-index:2; bottom:20px; width:34%; height:calc((100% - 36px) * .6818); transition:height .45s cubic-bezier(.2,.8,.2,1); }\n.jojo-person { left:17%; }\n.reader-person { right:10%; height:calc((100% - 36px) * .6818); }\n.person-label { position:absolute; left:50%; bottom:calc(100% + 8px); transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; white-space:nowrap; font-size:.72rem; }\n.person-label strong { color:#fff; letter-spacing:.08em; }\n.person-label span { color:var(--blue-soft); }\n.person-silhouette { position:absolute; left:50%; bottom:0; width:72px; height:100%; transform:translateX(-50%); }\n.person-silhouette span { position:absolute; display:block; background:#c6bbff; }\n.reader-silhouette span { background:#f2f0ff; }\n.sil-head { top:0; left:50%; width:28%; aspect-ratio:1; transform:translateX(-50%); border-radius:50%; }\n.sil-body { top:20%; left:50%; width:42%; height:39%; transform:translateX(-50%); border-radius:45% 45% 22% 22%; }\n.sil-hair { top:1%; left:50%; width:43%; height:30%; transform:translateX(-50%); border-radius:48% 48% 38% 38%; }\n.female-silhouette .sil-head { z-index:2; background:#d9d1ff; }\n.female-silhouette .sil-body { z-index:2; top:22%; width:38%; height:31%; }\n.sil-skirt { z-index:3; top:45%; left:50%; width:64%; height:23%; transform:translateX(-50%); clip-path:polygon(35% 0,65% 0,100% 100%,0 100%); }\n.sil-leg { bottom:0; width:13%; height:38%; border-radius:0 0 8px 8px; }\n.sil-leg.left { left:34%; transform:rotate(1deg); transform-origin:top; }\n.sil-leg.right { right:34%; transform:rotate(-1deg); transform-origin:top; }\n.female-silhouette .sil-leg { height:34%; }\n.sil-arm { top:25%; width:10%; height:35%; border-radius:10px; transform-origin:top; }\n.sil-arm.left { left:23%; transform:rotate(7deg); }\n.sil-arm.right { right:23%; transform:rotate(-7deg); }\n\n@media (max-width: 860px) {\n    .jojometro-card { grid-template-columns:1fr; padding:22px; }\n    .height-comparison { --chart-height:380px; }\n}\n@media (max-width: 520px) {\n    .jojometro-input-row { flex-direction:column; }\n    .height-comparison { --chart-height:330px; }\n    .height-person { width:40%; }\n    .jojo-person { left:12%; }\n    .reader-person { right:4%; }\n    .person-silhouette { width:58px; }\n    .jojo-line span { font-size:.55rem; }\n}\n
+
+
+/* Jojômetro: estilos isolados para não interferir nas outras seções. */
+.jojometro-section { overflow: hidden; }
+.jojometro-card { display:grid; grid-template-columns:minmax(260px,.78fr) minmax(460px,1.22fr); gap:clamp(28px,5vw,72px); align-items:center; padding:clamp(24px,4vw,52px); border:1px solid rgba(118,157,255,.18); background:rgba(8,15,30,.72); border-radius:24px; }
+.jojometro-controls label { display:block; margin-bottom:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem; }
+.jojometro-input-row { display:flex; gap:10px; }
+.jojometro-input-row input { min-width:0; flex:1; padding:14px 16px; border:1px solid rgba(118,157,255,.28); border-radius:10px; background:#07101f; color:#fff; font:inherit; outline:none; }
+.jojometro-input-row input:focus { border-color:#769dff; box-shadow:0 0 0 3px rgba(118,157,255,.12); }
+.jojometro-help { margin:9px 0 22px; opacity:.62; font-size:.85rem; }
+.jojometro-result { min-height:88px; padding:18px; border-left:3px solid #769dff; background:rgba(118,157,255,.07); border-radius:0 12px 12px 0; }
+.jojometro-result strong,.jojometro-result span { display:block; }
+.jojometro-result strong { font-size:clamp(1.05rem,2vw,1.35rem); }
+.jojometro-result span { margin-top:6px; opacity:.7; font-size:.9rem; }
+.jojometro-chart { position:relative; height:540px; display:flex; align-items:flex-end; justify-content:center; gap:clamp(54px,8vw,105px); padding:34px 28px 48px 64px; border-radius:18px; overflow:hidden; background:repeating-linear-gradient(to top,rgba(118,157,255,.085) 0 1px,transparent 1px calc((100% - 82px)/12)); border-bottom:2px solid rgba(255,255,255,.2); }
+.jojometro-scale { position:absolute; inset:34px auto 48px 10px; width:48px; font-size:.62rem; opacity:.62; }
+.jojometro-scale span { position:absolute; transform:translateY(50%); }
+.jojometro-line { position:absolute; left:56px; right:12px; bottom:calc(48px + (100% - 82px)/2); border-top:1px dashed rgba(93,226,218,.72); pointer-events:none; }
+.jojometro-person { position:relative; height:458px; width:130px; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; text-align:center; }
+.jojometro-person strong { position:absolute; bottom:-29px; font-size:.75rem; letter-spacing:.12em; }
+.jojometro-person small { position:absolute; bottom:-44px; white-space:nowrap; opacity:.65; font-size:.68rem; }
+.jojometro-height { position:absolute; z-index:3; font-size:.72rem; font-weight:700; white-space:nowrap; transform:translateY(-8px); padding:3px 7px; border-radius:999px; background:rgba(7,16,31,.82); }
+.jojometro-jojo .jojometro-height { bottom:50%; }
+.jojometro-reader .jojometro-height { bottom:var(--reader-height,50%); }
+.jojometro-silhouette { position:absolute; bottom:0; width:104px; min-height:18px; transition:height .45s cubic-bezier(.2,.8,.2,1); filter:drop-shadow(0 12px 18px rgba(0,0,0,.34)); }
+.jojometro-silhouette svg { width:100%; height:100%; display:block; overflow:visible; fill:#a7b9dc; }
+.jojometro-silhouette-jojo .jojometro-hair { fill:#7185ae; }
+.jojometro-silhouette-jojo .jojometro-outfit { fill:#8fa6d2; }
+.jojometro-silhouette-reader { height:50%; width:100px; }
+.jojometro-silhouette-reader svg { fill:#769dff; }
+.jojometro-silhouette-reader .jojometro-shirt { fill:#5f84e8; }
+@media (max-width:800px){.jojometro-card{grid-template-columns:1fr}.jojometro-chart{height:500px}.jojometro-person{height:418px}.jojometro-input-row{flex-direction:column}.jojometro-input-row .btn{width:100%}}
+@media (max-width:480px){.jojometro-chart{height:470px;gap:24px;padding-left:48px}.jojometro-person{height:388px;width:92px}.jojometro-silhouette{width:78px}.jojometro-silhouette-reader{width:76px}.jojometro-scale{left:5px}.jojometro-line{left:44px}}
+
+/* Jojômetro: usa uma silhueta pronta como máscara para manter a anatomia natural. */
+.jojometro-silhouette svg { display:none !important; }
+.jojometro-silhouette .jojometro-figure {
+    display:block;
+    width:100%;
+    height:100%;
+    background:#a7b9dc;
+    -webkit-mask:url('/static/images/jojometro/silhueta-altura.png') center bottom / contain no-repeat;
+    mask:url('/static/images/jojometro/silhueta-altura.png') center bottom / contain no-repeat;
+}
+.jojometro-silhouette-reader .jojometro-figure { background:#769dff; }
+.jojometro-silhouette-jojo .jojometro-figure { background:#9fb2d8; }
+
+/* Ações de compartilhamento das brincadeiras. */
+.brincadeira-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.brincadeira-actions .btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+
+/* Marielei: bloco isolado para não alterar os estilos do restante do site. */
+.marielizador-card{max-width:900px;margin:0 auto;padding:clamp(24px,4vw,48px);border:1px solid rgba(118,157,255,.18);background:rgba(8,15,30,.72);border-radius:24px}
+.marielizador-controls label{display:block;margin-bottom:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+.marielizador-input-row{display:flex;gap:10px}
+.marielizador-input-row input{min-width:0;flex:1;padding:14px 16px;border:1px solid rgba(118,157,255,.28);border-radius:10px;background:#07101f;color:#fff;font:inherit;outline:none}
+.marielizador-input-row input:focus{border-color:#769dff;box-shadow:0 0 0 3px rgba(118,157,255,.12)}
+.marielizador-help{margin:9px 0 22px;opacity:.62;font-size:.85rem}
+.marielizador-result{padding:clamp(22px,4vw,36px);border:1px solid rgba(93,226,218,.2);border-radius:18px;background:linear-gradient(135deg,rgba(118,157,255,.10),rgba(93,226,218,.05));text-align:center}
+.marielizador-result .marielizador-kicker{display:block;margin-bottom:10px;font-size:.68rem;font-weight:800;letter-spacing:.16em;opacity:.58}
+.marielizador-result strong{display:block;font-size:clamp(1.35rem,4vw,2.35rem);line-height:1.1}
+.marielizador-result>span:last-child{display:block;margin-top:10px;opacity:.68}
+.marielizador-card>.brincadeira-actions{justify-content:center}
+@media(max-width:600px){.marielizador-input-row{flex-direction:column}.marielizador-input-row .btn{width:100%}.brincadeira-actions{flex-direction:column}.brincadeira-actions .btn{width:100%}}

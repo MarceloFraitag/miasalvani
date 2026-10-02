@@ -440,4 +440,173 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') renderGalleryArt(currentArtIndex + 1);
 });
 
-\n\n// Jojômetro: converte metros/centímetros e mantém o desenho na mesma escala.\nconst alturaLeitor = document.querySelector('#alturaLeitor');\nconst calcularJojinhas = document.querySelector('#calcularJojinhas');\nconst jojometroMensagem = document.querySelector('#jojometroMensagem');\nconst jojometroIndice = document.querySelector('#jojometroIndice');\nconst jojometroResult = document.querySelector('#jojometroResult');\nconst readerPerson = document.querySelector('#readerPerson');\nconst readerHeightLabel = document.querySelector('#readerHeightLabel');\n\nfunction normalizarAltura(valor) {\n    const limpo = String(valor).trim().replace(',', '.').replace(/[^0-9.]/g, '');\n    const numero = Number.parseFloat(limpo);\n    if (!Number.isFinite(numero)) return null;\n    return numero <= 3 ? Math.round(numero * 100) : Math.round(numero);\n}\n\nfunction calcularAlturaEmJojinhas() {\n    const altura = normalizarAltura(alturaLeitor?.value);\n    if (!altura || altura < 50 || altura > 300) {\n        jojometroResult?.classList.add('is-error');\n        if (jojometroMensagem) jojometroMensagem.textContent = 'Coloque uma altura entre 50 e 300 cm.';\n        if (jojometroIndice) jojometroIndice.textContent = 'Exemplo: 1,78 ou 178.';\n        return;\n    }\n\n    jojometroResult?.classList.remove('is-error');\n    const jojinhasInteiras = Math.floor(altura / 150);\n    const sobra = altura % 150;\n    const indice = altura / 150;\n\n    let mensagem;\n    if (altura === 150) {\n        mensagem = 'Você tem exatamente 1 Jojinha.';\n    } else if (altura < 150) {\n        mensagem = `Você tem ${indice.toFixed(2).replace('.', ',')} Jojinhas.`;\n    } else if (sobra === 0) {\n        mensagem = `Você tem exatamente ${jojinhasInteiras} Jojinhas.`;\n    } else {\n        mensagem = `Você tem ${jojinhasInteiras} ${jojinhasInteiras === 1 ? 'Jojinha' : 'Jojinhas'} + ${sobra} cm.`;\n    }\n\n    if (jojometroMensagem) jojometroMensagem.textContent = mensagem;\n    if (jojometroIndice) {\n        const extra = altura === 150 ? ' Cientificamente preocupante.' : '';\n        jojometroIndice.textContent = `Índice Jojinha: ${indice.toFixed(2).replace('.', ',')} · Sua altura: ${altura} cm.${extra}`;\n    }\n    if (readerHeightLabel) readerHeightLabel.textContent = `${altura} cm`;\n\n    // O gráfico usa 220 cm como topo; valores maiores continuam proporcionais sem estourar o quadro.\n    if (readerPerson) {\n        const alturaVisual = Math.min(altura, 220) / 220 * 100;\n        readerPerson.style.height = `calc((100% - 36px) * ${alturaVisual / 100})`;\n    }\n}\n\ncalcularJojinhas?.addEventListener('click', calcularAlturaEmJojinhas);\nalturaLeitor?.addEventListener('keydown', (event) => {\n    if (event.key === 'Enter') calcularAlturaEmJojinhas();\n});\nalturaLeitor?.addEventListener('input', () => {\n    if (alturaLeitor.value.trim()) calcularAlturaEmJojinhas();\n});\n
+
+
+// Jojômetro: aceita altura em metros ou centímetros e atualiza a comparação visual.
+const jojometroInput = document.querySelector('#jojometroAltura');
+const jojometroButton = document.querySelector('#jojometroCalcular');
+const jojometroResult = document.querySelector('#jojometroResultado');
+const jojometroPerson = document.querySelector('#jojometroPessoa');
+const jojometroReader = document.querySelector('.jojometro-reader');
+const jojometroHeightLabel = document.querySelector('#jojometroAlturaLabel');
+const jojometroIndex = document.querySelector('#jojometroIndice');
+
+function parseJojometroHeight(value) {
+    const clean = String(value).trim().replace(',', '.').replace(/[^0-9.]/g, '');
+    const number = Number.parseFloat(clean);
+    if (!Number.isFinite(number)) return null;
+    return number <= 3 ? Math.round(number * 100) : Math.round(number);
+}
+
+function calculateJojinhas() {
+    if (!jojometroInput || !jojometroResult) return;
+    const cm = parseJojometroHeight(jojometroInput.value);
+    if (!cm || cm < 50) {
+        jojometroResult.innerHTML = '<strong>Essa altura parece suspeita.</strong><span>Use uma altura a partir de 50 cm.</span>';
+        return;
+    }
+    if (cm > 300) {
+        jojometroResult.innerHTML = '<strong>Calma aí, poste de iluminação.</strong><span>O Jojômetro vai até 3 metros.</span>';
+        return;
+    }
+    const full = Math.floor(cm / 150);
+    const rest = cm % 150;
+    const ratio = cm / 150;
+    let message;
+    let detail;
+    if (cm === 150) {
+        message = 'Você tem exatamente 1 Jojinha.';
+        detail = 'Cientificamente preocupante.';
+    } else if (cm < 150) {
+        message = `Você tem ${ratio.toFixed(2).replace('.', ',')} Jojinhas.`;
+        detail = `Faltam ${150 - cm} cm para completar uma Jojinha.`;
+    } else if (rest === 0) {
+        message = `Você tem exatamente ${full} Jojinhas.`;
+        detail = 'Uma ocorrência estatisticamente impressionante.';
+    } else {
+        message = `Você tem ${full} ${full === 1 ? 'Jojinha' : 'Jojinhas'} + ${rest} cm.`;
+        detail = `Isso equivale a ${ratio.toFixed(2).replace('.', ',')} Jojinhas.`;
+    }
+    jojometroResult.innerHTML = `<strong>${message}</strong><span>${detail}</span>`;
+    const visualPercent = Math.min(100, (cm / 300) * 100);
+    if (jojometroPerson) jojometroPerson.style.height = `${visualPercent}%`;
+    if (jojometroReader) jojometroReader.style.setProperty('--reader-height', `${visualPercent}%`);
+    if (jojometroHeightLabel) jojometroHeightLabel.textContent = `${cm} cm`;
+    if (jojometroIndex) jojometroIndex.textContent = `${ratio.toFixed(2).replace('.', ',')} Jojinhas`;
+}
+jojometroButton?.addEventListener('click', calculateJojinhas);
+jojometroInput?.addEventListener('keydown', (event) => { if (event.key === 'Enter') calculateJojinhas(); });
+jojometroInput?.addEventListener('input', () => { if (parseJojometroHeight(jojometroInput.value)) calculateJojinhas(); });
+
+// Compartilha pelo sistema quando disponível e copia como alternativa.
+function copiarParaAreaDeTransferencia(texto) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(texto);
+    }
+    const area = document.createElement('textarea');
+    area.value = texto;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+    return Promise.resolve();
+}
+
+async function compartilharOuCopiar(texto, titulo, botao) {
+    const conteudo = `${texto}\n${location.origin}${location.pathname}`;
+    if (navigator.share) {
+        try {
+            await navigator.share({ title: titulo, text: texto, url: `${location.origin}${location.pathname}` });
+            return;
+        } catch (erro) {
+            if (erro?.name === 'AbortError') return;
+        }
+    }
+    await copiarParaAreaDeTransferencia(conteudo);
+    if (botao) {
+        const original = botao.textContent;
+        botao.textContent = 'Link copiado!';
+        setTimeout(() => { botao.textContent = original; }, 1400);
+    }
+}
+
+async function copiarTexto(texto, botao) {
+    await copiarParaAreaDeTransferencia(`${texto}\n${location.origin}${location.pathname}`);
+    const original = botao.textContent;
+    botao.textContent = 'Copiado!';
+    setTimeout(() => { botao.textContent = original; }, 1400);
+}
+
+let ultimoResultadoJojometro = '';
+const jojometroCompartilhar = document.querySelector('#jojometroCompartilhar');
+const jojometroCopiar = document.querySelector('#jojometroCopiar');
+
+// Complementa o cálculo existente com o texto usado nos botões de compartilhar.
+const calcularJojinhasOriginal = calculateJojinhas;
+calculateJojinhas = function () {
+    calcularJojinhasOriginal();
+    const cm = parseJojometroHeight(jojometroInput?.value);
+    if (!cm || cm < 50 || cm > 300) return;
+    const inteiro = Math.floor(cm / 150);
+    const resto = cm % 150;
+    const indice = (cm / 150).toFixed(2).replace('.', ',');
+    if (cm === 150) ultimoResultadoJojometro = 'Eu tenho exatamente 1 Jojinha de altura 😂';
+    else if (cm < 150) ultimoResultadoJojometro = `Eu tenho ${indice} Jojinhas de altura 😂`;
+    else if (resto === 0) ultimoResultadoJojometro = `Eu tenho exatamente ${inteiro} Jojinhas de altura 😂`;
+    else ultimoResultadoJojometro = `Eu tenho ${inteiro} ${inteiro === 1 ? 'Jojinha' : 'Jojinhas'} + ${resto} cm de altura 😂 Isso equivale a ${indice} Jojinhas.`;
+    if (jojometroCompartilhar) jojometroCompartilhar.disabled = false;
+    if (jojometroCopiar) jojometroCopiar.disabled = false;
+};
+// Os listeners antigos apontam para a função anterior; estes garantem a atualização do compartilhamento.
+const jojoimetroRefresh = () => calculateJojinhas();
+jojometroButton?.addEventListener('click', jojoimetroRefresh);
+jojometroInput?.addEventListener('keydown', e => { if (e.key === 'Enter') jojoimetroRefresh(); });
+jojometroInput?.addEventListener('input', () => { if (parseJojometroHeight(jojometroInput.value)) jojoimetroRefresh(); });
+jojometroCompartilhar?.addEventListener('click', () => compartilharOuCopiar(ultimoResultadoJojometro, 'Meu resultado no Jojômetro', jojometroCompartilhar));
+jojometroCopiar?.addEventListener('click', () => copiarTexto(ultimoResultadoJojometro, jojometroCopiar));
+
+// Marielei: sorteia uma variante e mistura com o primeiro nome informado.
+const marielVariantes = ['Mariel 7 Bello', 'Maribel', 'Mirabel', 'Mirassol', 'Marissol'];
+const marielNome = document.querySelector('#marielNome');
+const marielBotao = document.querySelector('#marielizar');
+const marielResultado = document.querySelector('#marielResultado');
+const marielCompartilhar = document.querySelector('#marielCompartilhar');
+const marielCopiar = document.querySelector('#marielCopiar');
+let ultimoResultadoMariel = '';
+
+function misturarNomeComMariel(primeiroNome, variante) {
+    const nome = primeiroNome.trim();
+    const base = variante.replace(/ 7 Bello$/i, '');
+    const corteNome = Math.max(1, Math.ceil(nome.length * 0.55));
+    const corteBase = Math.max(2, Math.floor(base.length * 0.45));
+    let mistura = nome.slice(0, corteNome) + base.slice(corteBase);
+    mistura = mistura.charAt(0).toUpperCase() + mistura.slice(1).toLowerCase();
+    if (variante === 'Mariel 7 Bello') mistura += ' 7 Bello';
+    return mistura;
+}
+
+function marielizarNome() {
+    const completo = marielNome?.value.trim().replace(/\s+/g, ' ');
+    if (!completo || !marielResultado) {
+        marielResultado.innerHTML = '<span class="marielizador-kicker">CALMA</span><strong>Digite seu nome primeiro.</strong><span>A Mariel precisa de matéria-prima.</span>';
+        return;
+    }
+    const partes = completo.split(' ');
+    const primeiro = partes.shift();
+    const resto = partes.join(' ');
+    const variante = marielVariantes[Math.floor(Math.random() * marielVariantes.length)];
+    const misturado = misturarNomeComMariel(primeiro, variante);
+    const final = `${misturado}${resto ? ` ${resto}` : ''}`;
+    ultimoResultadoMariel = `Descobri que minha Mariel é ${final} 😂 Variante sorteada: ${variante}.`;
+    marielResultado.innerHTML = `<span class="marielizador-kicker">VARIANTE: ${variante}</span><strong>${final}</strong><span>O Marielei falou. Não cabe recurso.</span>`;
+    if (marielCompartilhar) marielCompartilhar.disabled = false;
+    if (marielCopiar) marielCopiar.disabled = false;
+}
+
+marielBotao?.addEventListener('click', marielizarNome);
+marielNome?.addEventListener('keydown', e => { if (e.key === 'Enter') marielizarNome(); });
+marielCompartilhar?.addEventListener('click', () => compartilharOuCopiar(ultimoResultadoMariel, 'Descubra que Mariel você é', marielCompartilhar));
+marielCopiar?.addEventListener('click', () => copiarTexto(ultimoResultadoMariel, marielCopiar));
