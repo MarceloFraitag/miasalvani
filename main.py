@@ -15,7 +15,7 @@ DB_PATH = Path(os.getenv("GENGAR_DB_PATH", BASE_DIR / "data" / "gengar.db"))
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 DB_LOCK = Lock()
 
-app = FastAPI(title="Site Oficial - Mia Salvani", version="3.0.0")
+app = FastAPI(title="Site Oficial - Mia Salvani", version="4.0.0")
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
@@ -34,6 +34,7 @@ CATALOGO_LIVROS = [
     {"id": 2, "titulo": "Abutre", "ordem": "Cisnes de New York — Livro 2", "premissa": "A continuação da série aprofunda relações perigosas, rivalidades e obsessões.", "capa_url": "/static/images/capas/abutre.jpg"},
     {"id": 3, "titulo": "Harpia", "ordem": "Cisnes de New York — Livro 3", "premissa": "Melissa Jang e Killian Belrose ocupam o centro do terceiro volume.", "capa_url": "/static/images/capas/harpia.jpg"},
     {"id": 4, "titulo": "Juízes", "ordem": "Prequel / Obra da Série", "premissa": "O prequel expande o passado e as origens do universo dos Cisnes.", "capa_url": "/static/images/capas/juizes.jpg"},
+    {"id": 5, "titulo": "Corvo", "ordem": "Cisnes de New York — Livro 4", "premissa": "Lançamento anunciado para 27 de outubro de 2026.", "capa_url": ""},
 ]
 
 
