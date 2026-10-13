@@ -55,3 +55,13 @@ Para trocar a data do lançamento, procure `2026-10-27T00:00:00-03:00` em `stati
 ## Observações
 
 O contador global do Gengar utiliza SQLite. Para ambientes hospedados, configure armazenamento persistente se quiser preservar os cliques entre reinicializações. O conteúdo editorial pode ser atualizado diretamente no HTML e no catálogo da API.
+
+
+## V4.1 — Correção de publicação
+
+- Os arquivos `style.css` e `site.js` usam `?v=4.1.0` no HTML para evitar reutilizar versões antigas no navegador.
+- A capa provisória de Corvo mantém largura máxima de 280 px e o emoji 🐦‍⬛.
+- O contador inicia quando o HTML estiver pronto e usa o horário de Brasília em 27/10/2026, às 00h.
+- Para a próxima alteração de CSS ou JS, atualize o número `v=` em `templates/index.html`.
+
+Depois do push, confira no Render se o deploy terminou como *Live* e abra os endereços dos arquivos com `?v=4.1.0`.

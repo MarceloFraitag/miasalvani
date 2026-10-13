@@ -611,35 +611,44 @@ marielNome?.addEventListener('keydown', e => { if (e.key === 'Enter') marielizar
 marielCompartilhar?.addEventListener('click', () => compartilharOuCopiar(ultimoResultadoMariel, 'Descubra que Mariel você é', marielCompartilhar));
 marielCopiar?.addEventListener('click', () => copiarTexto(ultimoResultadoMariel, marielCopiar));
 
-// Corvo: altere a data abaixo se o lançamento mudar. Horário de Brasília (UTC-3).
+// Corvo: data de lançamento em Brasília. A contagem não depende de outras funções do site.
 (function iniciarContagemCorvo() {
-    const contador = document.querySelector('[data-corvo-countdown]');
-    if (!contador) return;
-    const destino = new Date('2026-10-27T00:00:00-03:00').getTime();
-    const mensagem = document.querySelector('[data-corvo-message]');
-    const campos = {
-        days: contador.querySelector('[data-count-days]'),
-        hours: contador.querySelector('[data-count-hours]'),
-        minutes: contador.querySelector('[data-count-minutes]'),
-        seconds: contador.querySelector('[data-count-seconds]')
-    };
-    function atualizar() {
-        const restante = Math.max(0, destino - Date.now());
-        const segundos = Math.floor(restante / 1000);
-        const valores = {
-            days: Math.floor(segundos / 86400),
-            hours: Math.floor(segundos % 86400 / 3600),
-            minutes: Math.floor(segundos % 3600 / 60),
-            seconds: segundos % 60
+    function iniciar() {
+        const contador = document.querySelector('[data-corvo-countdown]');
+        if (!contador) return;
+        const destino = new Date('2026-10-27T00:00:00-03:00').getTime();
+        const mensagem = document.querySelector('[data-corvo-message]');
+        const campos = {
+            days: contador.querySelector('[data-count-days]'),
+            hours: contador.querySelector('[data-count-hours]'),
+            minutes: contador.querySelector('[data-count-minutes]'),
+            seconds: contador.querySelector('[data-count-seconds]')
         };
-        Object.entries(valores).forEach(([campo, valor]) => {
-            campos[campo].textContent = String(valor).padStart(2, '0');
-        });
-        if (restante === 0) {
-            mensagem.textContent = 'Chegou o dia de Corvo! 🖤';
-            clearInterval(intervalo);
+        if (Object.values(campos).some(campo => !campo)) return;
+        let intervalo;
+        function atualizar() {
+            const restante = Math.max(0, destino - Date.now());
+            const segundos = Math.floor(restante / 1000);
+            const valores = {
+                days: Math.floor(segundos / 86400),
+                hours: Math.floor((segundos % 86400) / 3600),
+                minutes: Math.floor((segundos % 3600) / 60),
+                seconds: segundos % 60
+            };
+            Object.entries(valores).forEach(([campo, valor]) => {
+                campos[campo].textContent = String(valor).padStart(2, '0');
+            });
+            if (restante === 0) {
+                if (mensagem) mensagem.textContent = 'Chegou o dia de Corvo! 🖤';
+                clearInterval(intervalo);
+            }
         }
+        atualizar();
+        if (Date.now() < destino) intervalo = setInterval(atualizar, 1000);
     }
-    const intervalo = setInterval(atualizar, 1000);
-    atualizar();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', iniciar, { once: true });
+    } else {
+        iniciar();
+    }
 })();
