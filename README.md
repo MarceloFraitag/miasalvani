@@ -1,4 +1,4 @@
-# Mia Salvani — Site Oficial V4
+# Mia Salvani — Site Oficial V5.0
 
 Site oficial da Mia Salvani e do universo **Cisnes de New York**. Reúne os livros, informações da autora, relações entre personagens, equipe e o easter egg do Gengar.
 
@@ -65,3 +65,10 @@ O contador global do Gengar utiliza SQLite. Para ambientes hospedados, configure
 - Para a próxima alteração de CSS ou JS, atualize o número `v=` em `templates/index.html`.
 
 Depois do push, confira no Render se o deploy terminou como *Live* e abra os endereços dos arquivos com `?v=4.1.0`.
+
+## V5.0 — Corvo
+
+- Sinopse de Reid e Lara adaptada das artes oficiais enviadas.
+- Galeria com 12 imagens otimizadas em WebP, ampliáveis pelo visualizador já existente.
+- Mantidos contador, Gengar, demais galerias, relações e recursos da V4.1.
+- Arquivos originais de imagem não incluídos no pacote final para manter o download leve.
