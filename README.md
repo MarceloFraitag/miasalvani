@@ -1,15 +1,15 @@
-# Mia Salvani — Site Oficial V5.0
+# Mia Salvani — Site Oficial V5.1
 
 Site oficial da Mia Salvani e do universo **Cisnes de New York**. Reúne os livros, informações da autora, relações entre personagens, equipe e o easter egg do Gengar.
 
-## Novidade: Corvo
+## Novidade: Corvo lançado
 
-**Corvo**, quarto livro da série principal, tem lançamento anunciado para **27 de outubro de 2026**. O site apresenta um card de anúncio com um corvo 🐦‍⬛, sem capa ou sinopse fictícias, e uma contagem regressiva até a meia-noite de Brasília (UTC−3). A contagem atualiza a cada segundo e mostra uma mensagem especial quando a data chega. O horário é uma referência para a virada do dia, não uma confirmação da hora oficial de lançamento.
+**Corvo**, quarto livro principal de *Cisnes de New York*, foi lançado em **27 de outubro de 2026**. O site agora exibe a capa oficial, mantém a galeria de Reid e Lara e oferece acesso direto à [Amazon](https://www.amazon.com.br/dp/B0HPGSFCWD). A contagem regressiva foi removida.
 
 ## O que tem no site
 
 - Apresentação da autora e do universo Cisnes de New York.
-- Cards de Albatroz, Abutre, Harpia, Juízes e o anúncio de Corvo.
+- Cards de Albatroz, Abutre, Harpia, Juízes e Corvo com capa oficial e link de compra.
 - Relações entre personagens, navegação responsiva e galerias.
 - Gengar da Mia com interações e contador de cliques.
 - API para consultar os livros e a contagem global do Gengar.
@@ -32,17 +32,17 @@ Abra http://127.0.0.1:8000. Para conferir o catálogo da API, acesse http://127.
 | Arquivo | O que você encontra |
 | --- | --- |
 | `main.py` | FastAPI, catálogo de livros, endpoints e contador do Gengar |
-| `templates/index.html` | Textos, cards, seções e marcação do anúncio de Corvo |
+| `templates/index.html` | Textos, cards, seções e marcação dCorvo com capa oficial e link de compra |
 | `static/css/style.css` | Cores, tamanhos, responsividade e aparência do card de Corvo |
-| `static/js/site.js` | Menu, relações, interações do Gengar e contagem regressiva |
+| `static/js/site.js` | Menu, relações e interações do Gengar |
 | `static/images/` | Imagens usadas no site |
 
-Para trocar a data do lançamento, procure `2026-10-27T00:00:00-03:00` em `static/js/site.js`. Para mudar o símbolo do anúncio, procure `corvo-art-symbol` no HTML e no CSS. As cores gerais ficam nas variáveis `:root` do CSS.
+As cores gerais ficam nas variáveis `:root` do CSS.
 
 ## Antes de publicar
 
 1. Confirme que as imagens e os links abrem normalmente.
-2. Teste o card de Corvo e a contagem regressiva no celular e no computador.
+2. Teste o card de Corvo e o link de compra no celular e no computador.
 3. Confira o funcionamento das relações e do Gengar.
 4. Não envie `.venv`, `.env` ou arquivos de banco locais ao repositório.
 

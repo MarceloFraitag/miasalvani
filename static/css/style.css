@@ -1730,40 +1730,5 @@ body.lightbox-open {
 .marielizador-card>.brincadeira-actions{justify-content:center}
 @media(max-width:600px){.marielizador-input-row{flex-direction:column}.marielizador-input-row .btn{width:100%}.brincadeira-actions{flex-direction:column}.brincadeira-actions .btn{width:100%}}
 
-/* Corvo: card de anúncio sem usar uma capa fictícia. */
-.corvo-card{border-color:rgba(118,157,255,.38)}
-.corvo-art{min-height:340px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;gap:22px;background:radial-gradient(circle at 50% 40%,rgba(77,104,175,.28),transparent 62%),linear-gradient(145deg,#111b34,#050914 80%);border:1px solid rgba(118,157,255,.24);border-radius:18px;color:#eaf0ff;letter-spacing:.15em}
-.corvo-art-label{font-size:.68rem;letter-spacing:.2em;color:#a8b9e8}
-.corvo-art-symbol{display:inline-block;font-size:3rem;line-height:1;color:#819fe4;text-shadow:0 0 20px rgba(118,157,255,.35)}
-.corvo-art strong{font-size:clamp(2.7rem,7vw,5rem);letter-spacing:.18em;line-height:1;text-shadow:0 0 32px rgba(118,157,255,.32)}
-.corvo-art-date{font-size:.9rem;color:#b9c8ed}
-.corvo-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:22px 0 10px}
-.corvo-countdown>div{padding:15px 5px;text-align:center;background:rgba(118,157,255,.08);border:1px solid rgba(118,157,255,.2);border-radius:12px}
-.corvo-countdown strong{display:block;font-size:clamp(1.3rem,3vw,2.1rem);line-height:1.2;font-variant-numeric:tabular-nums;color:#dce7ff}
-.corvo-countdown span{display:block;font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;margin-top:6px;color:#aebfe7}
-.corvo-countdown-message{font-size:.85rem;color:#aebfe7}
-@media(max-width:440px){.corvo-countdown{gap:4px}.corvo-countdown>div{padding:12px 2px}.corvo-countdown span{font-size:.57rem}}
-
-/* Ajuste a largura do anúncio e o tamanho do título de Corvo aqui. */
-.corvo-card .corvo-art{
-  box-sizing:border-box;
-  width:100%;
-  max-width:280px;
-  min-width:0;
-  min-height:340px;
-  padding:24px 16px;
-  margin-inline:auto;
-  overflow:hidden;
-}
-.corvo-card .corvo-art strong{
-  display:block;
-  max-width:100%;
-  font-size:clamp(2rem,4vw,3rem);
-  letter-spacing:.09em;
-  line-height:1.1;
-  white-space:nowrap;
-}
-@media(max-width:600px){
-  .corvo-card .corvo-art{max-width:240px;min-height:300px}
-  .corvo-card .corvo-art strong{font-size:2.35rem}
-}
+/* Corvo: capa oficial e destaque discreto no catálogo. */
+.corvo-card { border-color: rgba(118,157,255,.38); }
