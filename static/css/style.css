@@ -1732,3 +1732,124 @@ body.lightbox-open {
 
 /* Corvo: capa oficial e destaque discreto no catálogo. */
 .corvo-card { border-color: rgba(118,157,255,.38); }
+
+/* Playlists e quadro surpresa */
+.spotify-link { margin-left: 10px; border-color: rgba(29,185,84,.5); color: #baf4cc; }
+.spotify-link:hover { color: #fff; background: rgba(29,185,84,.16); }
+.coming-soon-card { width: min(90vw, 680px); padding: clamp(44px, 8vw, 90px) 24px; border: 1px solid rgba(143,172,220,.22); border-radius: 22px; background: linear-gradient(145deg, rgba(20,36,64,.65), rgba(7,12,27,.9)); transition: border-color .35s, box-shadow .35s, transform .35s; }
+.coming-soon-card:hover { transform: translateY(-5px); border-color: rgba(178,145,238,.7); box-shadow: 0 0 45px rgba(126,62,192,.16); }
+.coming-soon-card h2 { margin: 16px auto 0; }
+/* Botão fixo, sempre disponível */
+.gengar-good-morning { position: fixed; right: max(18px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); z-index: 1005; min-height: 52px; padding: 14px 20px; font-size: .93rem; color: #f2e5ff; background: linear-gradient(135deg, #51247c, #25113d); border-color: rgba(204,158,255,.65); box-shadow: 0 8px 30px rgba(64,22,108,.38); }
+.gengar-good-morning:hover { box-shadow: 0 8px 38px rgba(150,71,229,.55); }
+/* Camada roxa temporária, sem afetar cliques ou dados do site */
+body::after { content: ''; position: fixed; inset: 0; z-index: 990; pointer-events: none; background: rgba(103, 35, 170, .38); opacity: 0; transition: opacity .45s ease; }
+body.gengar-purple-mode::after { opacity: 1; }
+body.gengar-purple-mode .gengar-good-morning { border-color: #dfb8ff; box-shadow: 0 0 30px #8d41e0; }
+@media (max-width: 600px) { .gengar-good-morning { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); padding: 12px 14px; min-height: 48px; font-size: .8rem; } .spotify-link { margin: 8px 0 0; } }
+@media (prefers-reduced-motion: reduce) { body::after, .coming-soon-card { transition: none; } }
+
+/* Gengar e links dos livros */
+.gengar-counter { left: max(14px, env(safe-area-inset-left)); right: auto; bottom: max(18px, env(safe-area-inset-bottom)); }
+.spotify-link { display: inline-flex; align-items: center; gap: 9px; }
+.spotify-icon { width: 19px; height: 19px; flex: none; }
+.coming-soon-card { display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; color: inherit; font: inherit; text-align: center; margin-inline: auto; }
+.coming-soon-card:focus-visible { outline: 3px solid #a8c6ff; outline-offset: 5px; }
+.coming-soon-hint { display: block; margin-top: 14px; font-size: .82rem; color: #9bb6df; }
+.coming-soon-card.is-revealed { border-color: rgba(178,145,238,.7); }
+@keyframes gengarQuickShake { 0%,100% { transform:translate(0,0); } 15% { transform:translate(-4px,2px); } 30% { transform:translate(4px,-2px); } 45% { transform:translate(-3px,-2px); } 60% { transform:translate(3px,2px); } 75% { transform:translate(-2px,1px); } }
+body.gengar-shake-v61 main, body.gengar-shake-v61 header, body.gengar-shake-v61 footer { animation: gengarQuickShake .48s linear 1; }
+.gengar-takeover-message { position: fixed; z-index: 1004; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(90vw,560px); padding: 25px 26px; border: 1px solid rgba(211,165,255,.7); border-radius: 18px; background: rgba(23,9,44,.97); color: #f6ecff; box-shadow: 0 0 60px rgba(114,40,194,.5); text-align:center; pointer-events:none; opacity:0; visibility:hidden; transition:opacity .2s,visibility .2s; }
+.gengar-takeover-message.is-visible { opacity:1; visibility:visible; }
+.gengar-takeover-message strong { display:block; font-size:clamp(1.15rem,3vw,1.7rem); margin-bottom:8px; }
+.gengar-takeover-message span { display:block; line-height:1.6; font-size:.95rem; }
+@media(max-width:600px){ .gengar-counter { left:8px; right:auto; bottom:max(9px,env(safe-area-inset-bottom)); padding:7px 8px; max-width:145px; } .gengar-good-morning { max-width:calc(100vw - 170px); font-size:.73rem; padding:9px 10px; } .gengar-takeover-message { padding:20px 16px; } }
+@media(prefers-reduced-motion:reduce){ body.gengar-shake-v61 main,body.gengar-shake-v61 header,body.gengar-shake-v61 footer { animation:none; } }
+
+/* Seleção dos personagens */
+.book-link.spotify-link { margin-left: 0; padding-bottom: 5px; vertical-align: middle; }
+.book-link.spotify-link span { color: var(--blue-soft); }
+.book-link.spotify-link .spotify-icon { display:block; width:19px; height:19px; }
+.book-card .book-link { vertical-align: middle; }
+.gengar-takeover-message span { white-space: pre-line; line-height:1.65; }
+.jojometro-boys { max-width:1160px; margin:24px auto 0; padding:clamp(18px,3vw,32px); border:1px solid rgba(118,157,255,.2); border-radius:22px; background:rgba(8,15,30,.8); }
+.jojometro-boys h3 { font-size:1.15rem; margin:0 0 16px; }
+.jojometro-boy-options { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+.jojometro-boy-option { display:flex; flex-direction:column; align-items:stretch; gap:8px; padding:8px; border:1px solid rgba(118,157,255,.25); border-radius:13px; color:#f3f5ff; background:#101b31; cursor:pointer; font:inherit; text-align:center; }
+.jojometro-boy-option img { display:block; width:100%; height:150px; object-fit:cover; object-position:top center; border-radius:8px; }
+.jojometro-boy-option span { font-weight:700; font-size:.9rem; }
+.jojometro-boy-option small { display:block; margin-top:3px; font-size:.75rem; color:#a9bfe7; }
+.jojometro-boy-option.is-selected { border-color:#9ebcff; background:#22385c; box-shadow:0 0 0 1px #9ebcff; }
+.jojometro-boy-option:focus-visible { outline:3px solid #9ebcff; outline-offset:3px; }
+.jojometro-boy-result { margin:20px 0; font-weight:700; color:#cbdcff; }
+.jojometro-height-bars { display:grid; gap:13px; }
+.height-bar-row { display:grid; grid-template-columns:72px minmax(0,1fr) 65px; gap:12px; align-items:center; font-size:.82rem; }
+.height-bar-row b { text-align:right; font-variant-numeric:tabular-nums; }
+.height-bar-track { height:13px; overflow:hidden; border-radius:20px; background:#26354f; }
+.height-bar-fill { height:100%; border-radius:20px; transition:width .3s; }
+.height-bar-fill.jojo { background:#a6b3d5; }
+.height-bar-fill.reader { background:#719bff; }
+.height-bar-fill.boy { background:#b58de9; }
+.jojometro-art-note { margin:18px 0 0; font-size:.75rem; color:#9aaac6; }
+@media(max-width:680px){.jojometro-boy-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.jojometro-boy-option img{height:125px}.height-bar-row{grid-template-columns:55px minmax(0,1fr) 55px;gap:7px;font-size:.72rem}}
+@media(max-width:400px){.jojometro-boy-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.book-purchase-links { display:flex; align-items:center; flex-wrap:wrap; gap:12px 18px; margin-top:14px; }
+.book-purchase-links .book-link { margin:0; display:inline-flex; align-items:center; min-height:27px; padding-bottom:4px; line-height:20px; }
+@media(max-width:600px){.book-purchase-links{gap:10px 16px}}
+
+/* Comparação com três silhuetas */
+.jojometro-chart { gap:clamp(8px,2vw,26px); justify-content:space-evenly; padding-right:12px; }
+.jojometro-person { flex:0 1 115px; min-width:0; }
+.jojometro-silhouette-boy { width:min(100%,104px); }
+.jojometro-silhouette-boy .jojometro-figure {
+    background:#b58de9;
+    -webkit-mask:url('/static/images/jojometro/silhueta-masculina.png') center bottom / contain no-repeat;
+    mask:url('/static/images/jojometro/silhueta-masculina.png') center bottom / contain no-repeat;
+}
+.jojometro-boy-visual .jojometro-height { bottom:64%; }
+
+.jojometro-boy-visual .jojometro-height { bottom:var(--boy-height,64%); }
+.jojometro-boys .jojometro-boy-result { margin-bottom:0; }
+@media(max-width:480px) {
+    .jojometro-chart { gap:6px; padding-left:36px; padding-right:4px; }
+    .jojometro-person { width:30%; flex:0 1 30%; }
+    .jojometro-silhouette { max-width:100%; }
+    .jojometro-silhouette-boy { width:78px; }
+    .jojometro-person strong { font-size:.58rem; }
+    .jojometro-person small { font-size:.55rem; }
+    .jojometro-height { font-size:.57rem; padding:2px 3px; }
+}
+@media(prefers-reduced-motion:reduce) {.jojometro-silhouette {transition:none}}
+
+/* Base da régua: escala de 0 a 300 cm. */
+.jojometro-chart { --plot-height:458px; }
+.jojometro-chart .jojometro-person { height:var(--plot-height); }
+.jojometro-chart .jojometro-silhouette { width:auto !important; max-width:none !important; aspect-ratio:0.50; min-height:0; }
+.jojometro-chart .jojometro-silhouette .jojometro-figure {
+    width:100%;height:100%;
+    -webkit-mask-size:100% 100%;mask-size:100% 100%;
+}
+.jojometro-chart .jojometro-silhouette-boy .jojometro-figure {
+    -webkit-mask-size:100% 100%;mask-size:100% 100%;
+}
+.jojometro-chart .jojometro-jojo .jojometro-height {bottom:50%;}
+.jojometro-chart .jojometro-reader .jojometro-height {bottom:var(--reader-height,50%);}
+.jojometro-chart .jojometro-boy-visual .jojometro-height {bottom:var(--boy-height,64%);}
+@media(max-width:800px){.jojometro-chart{--plot-height:418px}}
+@media(max-width:480px){.jojometro-chart{--plot-height:388px}}
+
+/* Mantém a proporção original de cada silhueta. */
+.jojometro-chart { --plot-height:458px; }
+.jojometro-chart .jojometro-person { height:var(--plot-height); }
+.jojometro-chart .jojometro-silhouette { box-sizing:border-box; bottom:0; width:auto !important; max-width:none !important; min-height:0; }
+.jojometro-chart .jojometro-silhouette-jojo,
+.jojometro-chart .jojometro-silhouette-reader { aspect-ratio:144 / 403; }
+.jojometro-chart .jojometro-silhouette-boy { aspect-ratio:197 / 382; }
+.jojometro-chart .jojometro-silhouette .jojometro-figure { width:100%; height:100%; -webkit-mask-size:100% 100%; mask-size:100% 100%; }
+.jojometro-chart .jojometro-height { transform:translate(-50%, -5px); left:50%; }
+.jojometro-chart .jojometro-jojo .jojometro-height {bottom:50%;}
+.jojometro-chart .jojometro-reader .jojometro-height {bottom:var(--reader-height,50%);}
+.jojometro-chart .jojometro-boy-visual .jojometro-height {bottom:var(--boy-height,64%);}
+@media(max-width:800px){.jojometro-chart{--plot-height:418px}}
+@media(max-width:480px){.jojometro-chart{--plot-height:388px}}

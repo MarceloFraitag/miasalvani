@@ -15,7 +15,7 @@ DB_PATH = Path(os.getenv("GENGAR_DB_PATH", BASE_DIR / "data" / "gengar.db"))
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 DB_LOCK = Lock()
 
-app = FastAPI(title="Site Oficial - Mia Salvani", version="4.0.0")
+app = FastAPI(title="Site Oficial - Mia Salvani", version="6.4.0")
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 

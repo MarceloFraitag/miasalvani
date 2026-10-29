@@ -312,20 +312,51 @@ characterButtons.forEach((button) => {
     button.addEventListener('click', () => showCharacterRelations(button.dataset.character));
 });
 
-// Easter egg: bom dia para o Gengar.
+// Modo Gengar: mensagens aleatórias e efeito de quatro segundos.
+let gengarTakeoverTimer;
+let gengarShakeTimer;
+const gengarTakeoverMessages = [
+    ['GENGAR TOMOU CONTA DO SITE!', 'A Mia perdeu o controle. O Gengar assumiu.'],
+    ['O GENGAR FICOU PUTO!', 'Ninguém sabe o motivo. Mas agora o site é roxo.'],
+    ['GENGAR ESTÁ DESEJANDO UM BOM DIA PARA:', '💜 Bom dia, Mia Salvani!\n💜 Bom dia, ADMs e betas da Mia Salvani!\n💜 Bom dia, quem já terminou Corvo!\n💜 Bom dia, convidados para jantar com a Melissa!'],
+    ['VOCÊ DESPERTOU O GENGAR!', 'Parabéns. Agora aguente as consequências.'],
+    ['INVASÃO GENGAR DETECTADA!', 'As autoridades literárias foram notificadas.'],
+    ['O GENGAR NÃO PEDIU PERMISSÃO!', 'Ele simplesmente decidiu que o site seria roxo.']
+];
+const takeoverMessage = document.createElement('div');
+takeoverMessage.className = 'gengar-takeover-message';
+takeoverMessage.setAttribute('role', 'status');
+takeoverMessage.setAttribute('aria-live', 'polite');
+document.body.appendChild(takeoverMessage);
 function triggerGengarTakeover() {
-    if (!gengarToast || document.body.classList.contains('gengar-shake')) return;
-
-    document.body.classList.add('gengar-shake');
-
-    window.setTimeout(() => {
-        document.body.classList.remove('gengar-shake');
-        showGengarToast(`
-            <div class="gengar-line gengar-message"><strong>O Gengar da Mia ficou puto contigo.</strong></div>
-            <div class="gengar-line gengar-personal">Você só precisava ter deixado ele quieto.</div>
-        `, true, 5000);
-    }, 1800);
+    const [title, detail] = gengarTakeoverMessages[Math.floor(Math.random() * gengarTakeoverMessages.length)];
+    const strong = document.createElement('strong');
+    strong.textContent = title;
+    const span = document.createElement('span');
+    span.textContent = detail;
+    takeoverMessage.replaceChildren(strong, span);
+    takeoverMessage.classList.add('is-visible');
+    document.body.classList.add('gengar-purple-mode');
+    document.body.classList.remove('gengar-shake-v61');
+    void document.body.offsetWidth;
+    document.body.classList.add('gengar-shake-v61');
+    window.clearTimeout(gengarShakeTimer);
+    gengarShakeTimer = window.setTimeout(() => document.body.classList.remove('gengar-shake-v61'), 500);
+    window.clearTimeout(gengarTakeoverTimer);
+    gengarTakeoverTimer = window.setTimeout(() => {
+        document.body.classList.remove('gengar-purple-mode');
+        takeoverMessage.classList.remove('is-visible');
+    }, 4000);
 }
+
+const comingSoonReveal = document.getElementById('comingSoonReveal');
+comingSoonReveal?.addEventListener('click', () => {
+    const revealed = comingSoonReveal.classList.toggle('is-revealed');
+    comingSoonReveal.setAttribute('aria-pressed', String(revealed));
+    document.getElementById('comingSoonEyebrow').textContent = revealed ? 'O UNIVERSO CONTINUA' : 'A CURIOSIDADE MATOU O GATO';
+    document.getElementById('comingSoonTitle').textContent = revealed ? 'Em breve...' : 'NÃO CLIQUE.';
+    document.getElementById('comingSoonHint').textContent = revealed ? 'Clique para esconder' : 'Você foi avisado.';
+});
 
 document.querySelectorAll('.nav-links a').forEach((link) => link.addEventListener('click', closeMenu));
 window.addEventListener('scroll', requestProgressUpdate, { passive: true });
@@ -488,6 +519,7 @@ function calculateJojinhas() {
         detail = `Isso equivale a ${ratio.toFixed(2).replace('.', ',')} Jojinhas.`;
     }
     jojometroResult.innerHTML = `<strong>${message}</strong><span>${detail}</span>`;
+    updateBoyComparison(cm);
     const visualPercent = Math.min(100, (cm / 300) * 100);
     if (jojometroPerson) jojometroPerson.style.height = `${visualPercent}%`;
     if (jojometroReader) jojometroReader.style.setProperty('--reader-height', `${visualPercent}%`);
@@ -496,7 +528,7 @@ function calculateJojinhas() {
 }
 jojometroButton?.addEventListener('click', calculateJojinhas);
 jojometroInput?.addEventListener('keydown', (event) => { if (event.key === 'Enter') calculateJojinhas(); });
-jojometroInput?.addEventListener('input', () => { if (parseJojometroHeight(jojometroInput.value)) calculateJojinhas(); });
+jojometroInput?.addEventListener('input', calculateJojinhas);
 
 // Compartilha pelo sistema quando disponível e copia como alternativa.
 function copiarParaAreaDeTransferencia(texto) {
@@ -564,7 +596,7 @@ calculateJojinhas = function () {
 const jojoimetroRefresh = () => calculateJojinhas();
 jojometroButton?.addEventListener('click', jojoimetroRefresh);
 jojometroInput?.addEventListener('keydown', e => { if (e.key === 'Enter') jojoimetroRefresh(); });
-jojometroInput?.addEventListener('input', () => { if (parseJojometroHeight(jojometroInput.value)) jojoimetroRefresh(); });
+jojometroInput?.addEventListener('input', () => { jojoimetroRefresh(); });
 jojometroCompartilhar?.addEventListener('click', () => compartilharOuCopiar(ultimoResultadoJojometro, 'Meu resultado no Jojômetro', jojometroCompartilhar));
 jojometroCopiar?.addEventListener('click', () => copiarTexto(ultimoResultadoJojometro, jojometroCopiar));
 
@@ -610,3 +642,54 @@ marielBotao?.addEventListener('click', marielizarNome);
 marielNome?.addEventListener('keydown', e => { if (e.key === 'Enter') marielizarNome(); });
 marielCompartilhar?.addEventListener('click', () => compartilharOuCopiar(ultimoResultadoMariel, 'Descubra que Mariel você é', marielCompartilhar));
 marielCopiar?.addEventListener('click', () => copiarTexto(ultimoResultadoMariel, marielCopiar));
+
+
+// Alturas oficiais dos meninos, em centímetros.
+const jojometroBoys = { Dex:192, Declan:196, Killian:192, Reid:198, Chuck:189 };
+let selectedJojometroBoy = 'Dex';
+function updateBoyComparison(cm) {
+    const boyCm = jojometroBoys[selectedJojometroBoy];
+    const result = document.getElementById('jojometroBoyResult');
+    const silhouette = document.getElementById('jojometroBoySilhouette');
+    const heightLabel = document.getElementById('jojometroBoyHeight');
+    const visualName = document.getElementById('jojometroBoyVisualName');
+    const visualMeters = document.getElementById('jojometroBoyVisualMeters');
+    if (silhouette) silhouette.style.height = `${boyCm / 300 * 100}%`;
+    silhouette?.closest('.jojometro-boy-visual')?.style.setProperty('--boy-height', `${boyCm / 300 * 100}%`);
+    if (heightLabel) heightLabel.textContent = `${boyCm} cm`;
+    if (visualName) visualName.textContent = selectedJojometroBoy.toUpperCase();
+    if (visualMeters) visualMeters.textContent = `${(boyCm / 100).toFixed(2).replace('.', ',')} m`;
+    if (!result) return;
+    if (!cm || cm < 50 || cm > 300) {
+        result.textContent = `Digite sua altura para comparar com ${selectedJojometroBoy}.`;
+        return;
+    }
+    const difference = boyCm - cm;
+    result.textContent = difference > 0
+        ? `${selectedJojometroBoy} é ${difference} cm mais alto que você.`
+        : difference < 0
+            ? `Você é ${-difference} cm mais alto(a) que ${selectedJojometroBoy}.`
+            : `Você e ${selectedJojometroBoy} têm a mesma altura!`;
+}
+
+document.querySelectorAll('[data-boy]').forEach(button => {
+    button.addEventListener('click', () => {
+        selectedJojometroBoy = button.dataset.boy;
+        document.querySelectorAll('[data-boy]').forEach(option => {
+            const selected = option === button;
+            option.classList.toggle('is-selected', selected);
+            option.setAttribute('aria-pressed', String(selected));
+        });
+        updateBoyComparison(parseJojometroHeight(jojometroInput?.value));
+    });
+});
+
+// Mostra o personagem selecionado antes do primeiro cálculo.
+updateBoyComparison(parseJojometroHeight(jojometroInput?.value));
+
+// Usa a altura preenchida, se válida.
+if (jojometroInput?.value && parseJojometroHeight(jojometroInput.value) >= 50 && parseJojometroHeight(jojometroInput.value) <= 300) {
+    calculateJojinhas();
+} else {
+    if (jojometroHeightLabel) jojometroHeightLabel.textContent = '—';
+}

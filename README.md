@@ -1,22 +1,43 @@
-# Mia Salvani — Site Oficial V5.1
+# Mia Salvani — Site Oficial
 
-Site oficial da Mia Salvani e do universo **Cisnes de New York**. Reúne os livros, informações da autora, relações entre personagens, equipe e o easter egg do Gengar.
+Site da escritora Mia Salvani, dedicado à série *Cisnes de New York*. Reúne os livros, galerias, personagens e algumas brincadeiras para as leitoras.
 
-## Novidade: Corvo lançado
+**Versão atual:** 6.4
 
-**Corvo**, quarto livro principal de *Cisnes de New York*, foi lançado em **27 de outubro de 2026**. O site agora exibe a capa oficial, mantém a galeria de Reid e Lara e oferece acesso direto à [Amazon](https://www.amazon.com.br/dp/B0HPGSFCWD). A contagem regressiva foi removida.
+## Conteúdo
 
-## O que tem no site
+- **Livros:** Albatroz, Abutre, Harpia, Juízes (prequel) e Corvo, com capas, sinopses e links de compra.
+- **Spotify:** playlists de Albatroz, Abutre, Harpia e Corvo, acessíveis pelos cards dos livros.
+- **Galerias:** artes dos livros e dos personagens, com visualização ampliada.
+- **Relações:** painel de conexões entre personagens.
+- **Jojômetro:** compara a altura da leitora com a Jojinha (1,50 m) e um dos cinco meninos. Usa as silhuetas do projeto e as artes oficiais da Mia na seleção.
+- **Marielei:** brincadeira com variações de nomes.
+- **Gengar:** botão fixo de bom dia, mensagens aleatórias, tema roxo temporário e contador de interações.
+- **Quadro surpresa:** mostra “NÃO CLIQUE.” e revela “Em breve...” ao ser acionado.
 
-- Apresentação da autora e do universo Cisnes de New York.
-- Cards de Albatroz, Abutre, Harpia, Juízes e Corvo com capa oficial e link de compra.
-- Relações entre personagens, navegação responsiva e galerias.
-- Gengar da Mia com interações e contador de cliques.
-- API para consultar os livros e a contagem global do Gengar.
+## Alturas do Jojômetro
 
-## Rodar no computador
+| Personagem | Altura |
+| --- | ---: |
+| Jojinha | 1,50 m |
+| Dex | 1,92 m |
+| Declan | 1,96 m |
+| Killian | 1,92 m |
+| Reid | 1,98 m |
+| Chuck | 1,89 m |
 
-Tenha Python instalado. Na pasta do projeto:
+A altura da leitora é informada no formulário. A régua usa uma escala comum para as três silhuetas. Os retratos dos meninos são artes oficiais da Mia; nenhuma arte gerada por IA faz parte do projeto.
+
+## Tecnologias
+
+- Python, FastAPI e Jinja2
+- HTML, CSS e JavaScript
+- SQLite para o contador global do Gengar
+- Render para hospedagem
+
+## Executar localmente
+
+Requer Python instalado. Na pasta do projeto, execute:
 
 ```powershell
 python -m venv .venv
@@ -25,50 +46,42 @@ python -m pip install -r requirements.txt
 python -m uvicorn main:app --reload
 ```
 
-Abra http://127.0.0.1:8000. Para conferir o catálogo da API, acesse http://127.0.0.1:8000/api/livros.
+Abra `http://127.0.0.1:8000`.
 
-## Onde editar
+## Arquivos principais
 
-| Arquivo | O que você encontra |
+| Caminho | Conteúdo |
 | --- | --- |
-| `main.py` | FastAPI, catálogo de livros, endpoints e contador do Gengar |
-| `templates/index.html` | Textos, cards, seções e marcação dCorvo com capa oficial e link de compra |
-| `static/css/style.css` | Cores, tamanhos, responsividade e aparência do card de Corvo |
-| `static/js/site.js` | Menu, relações e interações do Gengar |
-| `static/images/` | Imagens usadas no site |
+| `main.py` | Rotas FastAPI, catálogo e contador do Gengar |
+| `templates/index.html` | Estrutura e conteúdo do site |
+| `static/css/style.css` | Layout, temas e responsividade |
+| `static/js/site.js` | Interações, galerias, Jojômetro e Gengar |
+| `static/images/` | Capas, galerias e silhuetas |
+| `render.yaml` | Configuração de deploy no Render |
 
-As cores gerais ficam nas variáveis `:root` do CSS.
+## API
 
-## Antes de publicar
+- `GET /api/livros` — catálogo dos livros
+- `GET /api/gengar` — total global de interações
+- `POST /api/gengar/click` — registra uma interação
+- `GET /health` — estado da aplicação
 
-1. Confirme que as imagens e os links abrem normalmente.
-2. Teste o card de Corvo e o link de compra no celular e no computador.
-3. Confira o funcionamento das relações e do Gengar.
-4. Não envie `.venv`, `.env` ou arquivos de banco locais ao repositório.
+## Publicação
 
-## Histórico
+O contador usa o caminho definido em `GENGAR_DB_PATH`. Em produção, configure esse caminho em armazenamento persistente. **Não substitua o banco de produção pelo banco local.**
 
-- **V4:** anúncio de Corvo, contagem regressiva, ajuste do tamanho do card, emoji de corvo e documentação atualizada.
-- **V3:** melhorias de interface, responsividade e organização do conteúdo.
-- **V2:** estrutura do site com FastAPI, catálogo e contador do Gengar.
+Antes de publicar, teste o menu, as galerias, os links, o modo Gengar e o Jojômetro no computador e no celular. Atualize o parâmetro `?v=` do CSS e do JavaScript quando alterar esses arquivos.
 
-## Observações
+## Histórico resumido
 
-O contador global do Gengar utiliza SQLite. Para ambientes hospedados, configure armazenamento persistente se quiser preservar os cliques entre reinicializações. O conteúdo editorial pode ser atualizado diretamente no HTML e no catálogo da API.
+| Versão | Alterações |
+| --- | --- |
+| V2–V3 | Estrutura do site, catálogo, contador e melhorias de interface |
+| V4–V4.1 | Preparação de Corvo e correções de publicação |
+| V5 | Capa, sinopse e galeria de Corvo |
+| V6–V6.1 | Playlists, quadro surpresa e modo Gengar com duração de 4 segundos |
+| V6.2 | Seleção dos meninos e comparação de alturas |
+| V6.3–V6.3.2 | Terceira silhueta, escala da régua e correções de proporção |
+| V6.4 | Revisão de documentação e comentários, sem mudanças de interface |
 
-
-## V4.1 — Correção de publicação
-
-- Os arquivos `style.css` e `site.js` usam `?v=4.1.0` no HTML para evitar reutilizar versões antigas no navegador.
-- A capa provisória de Corvo mantém largura máxima de 280 px e o emoji 🐦‍⬛.
-- O contador inicia quando o HTML estiver pronto e usa o horário de Brasília em 27/10/2026, às 00h.
-- Para a próxima alteração de CSS ou JS, atualize o número `v=` em `templates/index.html`.
-
-Depois do push, confira no Render se o deploy terminou como *Live* e abra os endereços dos arquivos com `?v=4.1.0`.
-
-## V5.0 — Corvo
-
-- Sinopse de Reid e Lara adaptada das artes oficiais enviadas.
-- Galeria com 12 imagens otimizadas em WebP, ampliáveis pelo visualizador já existente.
-- Mantidos contador, Gengar, demais galerias, relações e recursos da V4.1.
-- Arquivos originais de imagem não incluídos no pacote final para manter o download leve.
+Corvo foi lançado em 27 de outubro de 2026.
