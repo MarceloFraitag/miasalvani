@@ -95,7 +95,7 @@ function savePersonalClicks(value) {
     try {
         localStorage.setItem('miaGengarClicks', String(value));
     } catch {
-        // Sem armazenamento local, fica só o contador global.
+        // Sem armazenamento local, a contagem será reiniciada ao recarregar.
     }
 }
 
@@ -127,50 +127,23 @@ function showGengarToast(content, angry = false, duration = 5200) {
     }, duration);
 }
 
-// Carrega o contador global.
-async function loadGengarCount() {
-    if (!gengarGlobalCount) return;
-
-    try {
-        const response = await fetch('/api/gengar');
-        if (!response.ok) return;
-
-        const data = await response.json();
-        gengarGlobalCount.textContent = formatCount(data.clicks);
-    } catch (error) {
-        console.warn('Contador do Gengar indisponível.', error);
-    }
+// Contador local: o GitHub Pages não executa APIs Python.
+function loadGengarCount() {
+    if (gengarGlobalCount) gengarGlobalCount.textContent = formatCount(getPersonalClicks());
 }
 
-// Soma o clique local e tenta registrar o global.
-async function catchGengar() {
+// Registra apenas os cliques deste navegador.
+function catchGengar() {
     if (!gengar) return;
     gengar.classList.remove('is-visible');
 
-    const personalClicks = getPersonalClicks() + 1;
-    savePersonalClicks(personalClicks);
-
-    let globalClicks = null;
-
-    try {
-        const response = await fetch('/api/gengar/click', { method: 'POST' });
-        if (response.ok) {
-            const data = await response.json();
-            globalClicks = data.clicks;
-            if (gengarGlobalCount) gengarGlobalCount.textContent = formatCount(globalClicks);
-        }
-    } catch (error) {
-        console.warn('Não foi possível registrar o clique global.', error);
-    }
-
-    const globalLine = globalClicks === null
-        ? '<div class="gengar-line gengar-global">Contador global indisponível no momento.</div>'
-        : `<div class="gengar-line gengar-global">O site inteiro já encontrou ele <strong>${formatCount(globalClicks)}</strong> vezes.</div>`;
+    const clicks = getPersonalClicks() + 1;
+    savePersonalClicks(clicks);
+    if (gengarGlobalCount) gengarGlobalCount.textContent = formatCount(clicks);
 
     showGengarToast(`
-        <div class="gengar-line gengar-message">${personalMessage(personalClicks)}</div>
-        <div class="gengar-line gengar-personal">Você é responsável por <strong>${formatCount(personalClicks)}</strong> clique${personalClicks === 1 ? '' : 's'}.</div>
-        ${globalLine}
+        <div class="gengar-line gengar-message">${personalMessage(clicks)}</div>
+        <div class="gengar-line gengar-personal">Você encontrou o Gengar <strong>${formatCount(clicks)}</strong> vez${clicks === 1 ? '' : 'es'} neste navegador.</div>
     `);
 }
 
