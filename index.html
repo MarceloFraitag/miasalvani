@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09080d">
+    <meta name="description" content="Site oficial de Mia Salvani, autora brasileira de dark romance e criadora do universo Cisnes de New York. Conheça Albatroz, Abutre, Harpia, Juízes e Corvo.">
+    <meta name="author" content="Mia Salvani">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="keywords" content="Mia Salvani, Cisnes de New York, Albatroz, Abutre, Harpia, Juízes, Corvo, dark romance, autora brasileira">
+    <title>Mia Salvani | Cisnes de New York — Site Oficial</title>
+
+    <link rel="icon" type="image/png" href="static/images/icon-mia.png">
+    <link rel="stylesheet" href="static/css/style.css?v=7.0.0">
+    <script src="static/js/site.js?v=7.0.0" defer></script>
+</head>
+<body>
+    <!-- Acessibilidade -->
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+    <!-- Easter egg do Gengar -->
+    <button class="gengar-easter-egg" id="gengarEasterEgg" type="button" aria-label="Gengar da Mia">
+        <img src="static/images/gengar.png" alt="">
+    </button>
+
+    <div class="gengar-counter" id="gengarCounter" aria-live="polite">
+        <span>👻 Gengar encontrado</span>
+        <strong id="gengarGlobalCount">0</strong>
+        <small>vezes neste navegador</small>
+    </div>
+
+    <div class="gengar-toast" id="gengarToast" role="status" aria-live="polite"></div>
+
+    <nav class="topbar" aria-label="Navegação principal">
+        <a class="brand" href="#inicio">
+            <img src="static/images/icon-mia.png" alt="" class="brand-icon">
+            <span>MIA SALVANI</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+            <span class="sr-only">Abrir menu</span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#universo" data-nav-section="universo">Universo</a>
+            <a href="#livros" data-nav-section="livros">Livros</a>
+            <a href="#relacoes" data-nav-section="relacoes">Relações</a>
+            <a href="#jojometro" data-nav-section="jojometro">Quantas Jojinhas?</a>
+            <a href="#marielizador" data-nav-section="marielizador">Marielei</a>
+            <a href="#sobre" data-nav-section="sobre">Sobre</a>
+            <a href="#equipe" data-nav-section="equipe">Equipe</a>
+            <a href="https://www.instagram.com/misalvani/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <!-- Hero -->
+        <section class="hero" id="inicio">
+            <div class="hero-noise" aria-hidden="true"></div>
+            <div class="hero-content reveal">
+                <p class="eyebrow">AUTORA BRASILEIRA • DARK ROMANCE</p>
+                <h1>Mia <span>Salvani</span></h1>
+                <p class="hero-quote">“Escritora e dona de um Gengar tóxico. Se eu criei Dex Belrose, claramente eu não sou normal.”</p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#livros">Conhecer os Cisnes</a>
+                    <a class="btn btn-ghost" href="https://www.instagram.com/misalvani/" target="_blank" rel="noopener noreferrer">Seguir a Mia</a>
+                </div>
+            </div>
+
+            <div class="hero-portrait reveal">
+                <div class="portrait-frame">
+                    <img src="static/images/foto-nova.png" alt="Mia Salvani" fetchpriority="high" decoding="async">
+                </div>
+                <span class="portrait-label">MIA SALVANI</span>
+            </div>
+
+            <a class="scroll-hint" href="#universo" aria-label="Ir para a próxima seção">↓</a>
+        </section>
+
+        <!-- Universo -->
+        <section class="universe-section section-shell" id="universo">
+            <div class="section-heading reveal">
+                <p class="eyebrow">BEM-VINDO A NEW YORK</p>
+                <h2>Todo cisne esconde alguma coisa.</h2>
+                <p>Amizades quebradas, famílias poderosas, obsessões e segredos cercam o universo de <strong>Cisnes de New York</strong>. Escolha por onde entrar — e cuidado com o que encontrar.</p>
+            </div>
+
+            <div class="universe-entry reveal">
+                <div class="entry-copy">
+                    <span class="entry-label">POR ONDE COMEÇAR</span>
+                    <h3>Escolha sua porta de entrada.</h3>
+                    <p>Conheça a sequência principal de <strong>Cisnes de New York</strong> ou volte no tempo com <strong>Juízes</strong>, o prequel do universo.</p>
+                </div>
+
+                <div class="entry-actions">
+                    <a href="#albatroz" class="entry-link">
+                        <span>01</span>
+                        <div>
+                            <strong>Trilogia principal</strong>
+                            <small>Albatroz → Abutre → Harpia</small>
+                        </div>
+                        <b aria-hidden="true">→</b>
+                    </a>
+                    <a href="#juizes" class="entry-link">
+                        <span>00</span>
+                        <div>
+                            <strong>Antes dos Cisnes</strong>
+                            <small>Conheça Juízes, o prequel</small>
+                        </div>
+                        <b aria-hidden="true">→</b>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Livros -->
+        <section class="books-section section-shell" id="livros">
+            <div class="section-heading reveal">
+                <p class="eyebrow">CISNES DE NEW YORK</p>
+                <h2>Entre no universo.</h2>
+                <p>A ordem abaixo separa os volumes principais do prequel.</p>
+            </div>
+
+            <div class="books-list">
+                <article class="book-card reveal" id="albatroz">
+                    <div class="book-cover-wrap">
+                        <span class="book-index">01</span>
+                        <img src="static/images/capas/albatroz.jpg" alt="Capa do livro Albatroz" class="book-cover" loading="lazy" decoding="async">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta"><span>Livro 1</span><span>Dark romance</span></div>
+                        <h3>Albatroz</h3>
+                        <p class="book-hook">Um dark romance inspirado em Gossip Girl.</p>
+                        <p>Ao retornar a New York após um exílio em Londres, Olívia Valmont jurou manter distância de Dex Belrose. Ex-melhor amigo de infância e herdeiro rebelde, ele é o único que conhece o pacto sombrio que liga os Cisnes de New York.</p>
+                        <div class="tropes"><span>Friends to enemies to lovers</span><span>Found family</span><span>Grumpy x Grumpy</span><span>Protagonista obcecado</span></div>
+
+                        <div class="book-purchase-links">
+                            <a href="https://www.amazon.com.br/ALBATROZ-Cisnes-New-York-Livro-ebook/dp/B0F76J4GZT" target="_blank" rel="noopener noreferrer" class="book-link">Comprar na Amazon <span>↗</span></a>
+                            <a href="https://open.spotify.com/playlist/2TtY6rO1KX7j0jD7IKk3aN" target="_blank" rel="noopener noreferrer" class="book-link spotify-link" aria-label="Ouvir playlist de Albatroz no Spotify"><svg class="spotify-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path d="M5.5 9c4.6-1.2 9.2-.8 13.2 1.4M6.4 12.2c4-1 8.1-.6 11.4 1.4M7.2 15.3c3.3-.8 6.6-.4 9.4 1.1" fill="none" stroke="#07150C" stroke-width="1.6" stroke-linecap="round"/></svg><span>Albatroz</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Galeria: Albatroz -->
+                    <div class="harpia-gallery" data-art-gallery data-gallery-name="Albatroz" aria-labelledby="albatrozGalleryTitle">
+                        <div class="harpia-gallery-heading">
+                            <div>
+                                <span class="entry-label">ARTES DE ALBATROZ</span>
+                                <h4 id="albatrozGalleryTitle">Dex e Olívia.</h4>
+                            </div>
+                            <p>Selecione uma arte para abrir em tela cheia.</p>
+                        </div>
+                        <div class="harpia-art-grid">
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="0" aria-label="Abrir Arte 01 de Albatroz — Dex — tatuagens">
+                                <img src="static/images/albatroz/dex-tatuagens.webp" alt="Arte 01 de Albatroz — Dex — tatuagens" loading="lazy" decoding="async">
+                                <span>01</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="1" aria-label="Abrir Arte 02 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-03.webp" alt="Arte 02 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>02</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="2" aria-label="Abrir Arte 03 de Albatroz — os Cisnes">
+                                <img src="static/images/albatroz/cisnes-ilustra.webp" alt="Arte 03 de Albatroz — os Cisnes" loading="lazy" decoding="async">
+                                <span>03</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="3" aria-label="Abrir Arte 04 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dex-olivia.webp" alt="Arte 04 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>04</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="4" aria-label="Abrir Arte 05 de Albatroz — Dex e Olívia — piscina">
+                                <img src="static/images/albatroz/dexliv-piscina.webp" alt="Arte 05 de Albatroz — Dex e Olívia — piscina" loading="lazy" decoding="async">
+                                <span>05</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="5" aria-label="Abrir Arte 06 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-05.webp" alt="Arte 06 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>06</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="6" aria-label="Abrir Arte 07 de Albatroz — Dex e Killian">
+                                <img src="static/images/albatroz/dex-killian.webp" alt="Arte 07 de Albatroz — Dex e Killian" loading="lazy" decoding="async">
+                                <span>07</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="7" aria-label="Abrir Arte 08 de Albatroz — Dex e Olívia — celeiro">
+                                <img src="static/images/albatroz/dexliv-celeiro.webp" alt="Arte 08 de Albatroz — Dex e Olívia — celeiro" loading="lazy" decoding="async">
+                                <span>08</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="8" aria-label="Abrir Arte 09 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-02.webp" alt="Arte 09 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>09</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="9" aria-label="Abrir Arte 10 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-hd.webp" alt="Arte 10 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>10</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="10" aria-label="Abrir Arte 11 de Albatroz — Dex e Olívia — vestiário">
+                                <img src="static/images/albatroz/dexliv-vestiario.webp" alt="Arte 11 de Albatroz — Dex e Olívia — vestiário" loading="lazy" decoding="async">
+                                <span>11</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="11" aria-label="Abrir Arte 12 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-01.webp" alt="Arte 12 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>12</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="12" aria-label="Abrir Arte 13 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-04.webp" alt="Arte 13 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>13</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="13" aria-label="Abrir Arte 14 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-06.webp" alt="Arte 14 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>14</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="14" aria-label="Abrir Arte 15 de Albatroz — Dex e Olívia">
+                                <img src="static/images/albatroz/dexliv-07.webp" alt="Arte 15 de Albatroz — Dex e Olívia" loading="lazy" decoding="async">
+                                <span>15</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="15" aria-label="Abrir Arte 16 de Albatroz — Dex">
+                                <img src="static/images/albatroz/dex-retrato.webp" alt="Arte 16 de Albatroz — Dex" loading="lazy" decoding="async">
+                                <span>16</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="16" aria-label="Abrir Arte 17 de Albatroz — Olívia">
+                                <img src="static/images/albatroz/olivia-retrato.webp" alt="Arte 17 de Albatroz — Olívia" loading="lazy" decoding="async">
+                                <span>17</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card reveal" id="abutre">
+                    <div class="book-cover-wrap">
+                        <span class="book-index">02</span>
+                        <img src="static/images/capas/abutre.jpg" alt="Capa do livro Abutre" class="book-cover" loading="lazy" decoding="async">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta"><span>Livro 2</span><span>Stalker romance</span></div>
+                        <h3>Abutre</h3>
+                        <p class="book-hook">Quando o perseguidor e o protetor ocupam o mesmo lugar.</p>
+                        <p>Após a ruína financeira de sua família, Charlotte Sparks precisa aceitar dividir teto com Declan St. Clair, seu antigo colega de escola. Sob o mesmo teto, a linha entre proteção e obsessão começa a desaparecer.</p>
+                        <div class="tropes"><span>Haters to lovers</span><span>Convivência forçada</span><span>Famílias rivais</span><span>New adult</span></div>
+
+                        <div class="book-purchase-links">
+                            <a href="https://www.amazon.com.br/ABUTRE-Cisnes-New-York-Livro-ebook/dp/B0FQRGLGYH" target="_blank" rel="noopener noreferrer" class="book-link">Comprar na Amazon <span>↗</span></a>
+                            <a href="https://open.spotify.com/playlist/6hvSxq6hTQAVRJIS75HAuD" target="_blank" rel="noopener noreferrer" class="book-link spotify-link" aria-label="Ouvir playlist de Abutre no Spotify"><svg class="spotify-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path d="M5.5 9c4.6-1.2 9.2-.8 13.2 1.4M6.4 12.2c4-1 8.1-.6 11.4 1.4M7.2 15.3c3.3-.8 6.6-.4 9.4 1.1" fill="none" stroke="#07150C" stroke-width="1.6" stroke-linecap="round"/></svg><span>Abutre</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Galeria: Abutre -->
+                    <div class="harpia-gallery" data-art-gallery data-gallery-name="Abutre" aria-labelledby="abutreGalleryTitle">
+                        <div class="harpia-gallery-heading">
+                            <div>
+                                <span class="entry-label">ARTES DE ABUTRE</span>
+                                <h4 id="abutreGalleryTitle">Charlotte e Declan.</h4>
+                            </div>
+                            <p>Selecione uma arte para abrir em tela cheia.</p>
+                        </div>
+                        <div class="harpia-art-grid">
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="0" aria-label="Abrir Arte 01 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-01.webp" alt="Arte 01 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>01</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="1" aria-label="Abrir Arte 02 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-02.webp" alt="Arte 02 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>02</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="2" aria-label="Abrir Arte 03 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-03.webp" alt="Arte 03 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>03</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="3" aria-label="Abrir Arte 04 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-04.webp" alt="Arte 04 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>04</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="4" aria-label="Abrir Arte 05 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-05.webp" alt="Arte 05 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>05</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="5" aria-label="Abrir Arte 06 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-06.webp" alt="Arte 06 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>06</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="6" aria-label="Abrir Arte 07 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-07.webp" alt="Arte 07 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>07</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="7" aria-label="Abrir Arte 08 de Abutre — Declan e Charlotte">
+                                <img src="static/images/abutre/dechar-08.webp" alt="Arte 08 de Abutre — Declan e Charlotte" loading="lazy" decoding="async">
+                                <span>08</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="8" aria-label="Abrir Arte 09 de Abutre — Declan">
+                                <img src="static/images/abutre/declan-02.webp" alt="Arte 09 de Abutre — Declan" loading="lazy" decoding="async">
+                                <span>09</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="9" aria-label="Abrir Arte 10 de Abutre — Declan">
+                                <img src="static/images/abutre/declan.webp" alt="Arte 10 de Abutre — Declan" loading="lazy" decoding="async">
+                                <span>10</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="10" aria-label="Abrir Arte 11 de Abutre — Charlotte">
+                                <img src="static/images/abutre/charlotte.webp" alt="Arte 11 de Abutre — Charlotte" loading="lazy" decoding="async">
+                                <span>11</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="11" aria-label="Abrir Arte 12 de Abutre — Declan, Charlotte e Killian">
+                                <img src="static/images/abutre/declan-char-killian.webp" alt="Arte 12 de Abutre — Declan, Charlotte e Killian" loading="lazy" decoding="async">
+                                <span>12</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="12" aria-label="Abrir Arte 13 de Abutre — especial de Natal">
+                                <img src="static/images/abutre/labubus.webp" alt="Arte 13 de Abutre — especial de Natal" loading="lazy" decoding="async">
+                                <span>13</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card reveal" id="harpia">
+                    <div class="book-cover-wrap">
+                        <span class="book-index">03</span>
+                        <img src="static/images/capas/harpia.jpg" alt="Capa do livro Harpia" class="book-cover" loading="lazy" decoding="async">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta"><span>Livro 3</span><span>Dark romance</span></div>
+                        <h3>Harpia</h3>
+                        <p class="book-hook">Devoção também pode ser uma forma de perigo.</p>
+                        <p>Melissa Jang é brilhante e controlada, herdeira de uma poderosa dinastia médica. Killian Belrose cresceu moldado por sua própria violência e por uma devoção obsessiva por Melissa que nunca conheceu limites.</p>
+                        <div class="tropes"><span>Devoção obsessiva</span><span>Desde a infância</span><span>Dark romance</span></div>
+
+                        <div class="book-purchase-links">
+                            <a href="https://www.amazon.com.br/HARPIA-Cisnes-New-York-Livro-ebook/dp/B0GJSTN3NL" target="_blank" rel="noopener noreferrer" class="book-link">Comprar na Amazon <span>↗</span></a>
+                            <a href="https://open.spotify.com/playlist/4pDm84FOgpC2gDYrPyVLoT" target="_blank" rel="noopener noreferrer" class="book-link spotify-link" aria-label="Ouvir playlist de Harpia no Spotify"><svg class="spotify-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path d="M5.5 9c4.6-1.2 9.2-.8 13.2 1.4M6.4 12.2c4-1 8.1-.6 11.4 1.4M7.2 15.3c3.3-.8 6.6-.4 9.4 1.1" fill="none" stroke="#07150C" stroke-width="1.6" stroke-linecap="round"/></svg><span>Harpia</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Galeria: Harpia -->
+                    <div class="harpia-gallery" data-art-gallery data-gallery-name="Harpia" aria-labelledby="harpiaGalleryTitle">
+                        <div class="harpia-gallery-heading">
+                            <div>
+                                <span class="entry-label">ARTES DE HARPIA</span>
+                                <h4 id="harpiaGalleryTitle">Melissa, Killian e o caos.</h4>
+                            </div>
+                            <p>Selecione uma arte para abrir em tela cheia.</p>
+                        </div>
+                        <div class="harpia-art-grid">
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="0" aria-label="Abrir Arte 01 de Harpia">
+                                <img src="static/images/harpia/kelissa-01.webp" alt="Arte 01 de Harpia" loading="lazy" decoding="async">
+                                <span>01</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="1" aria-label="Abrir Arte 02 de Harpia">
+                                <img src="static/images/harpia/kelissa-02.webp" alt="Arte 02 de Harpia" loading="lazy" decoding="async">
+                                <span>02</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="2" aria-label="Abrir Arte 03 de Harpia">
+                                <img src="static/images/harpia/kelissa-03.webp" alt="Arte 03 de Harpia" loading="lazy" decoding="async">
+                                <span>03</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="3" aria-label="Abrir Arte 04 de Harpia">
+                                <img src="static/images/harpia/kelissa-04.webp" alt="Arte 04 de Harpia" loading="lazy" decoding="async">
+                                <span>04</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="4" aria-label="Abrir Arte 05 de Harpia">
+                                <img src="static/images/harpia/kelissa-05.webp" alt="Arte 05 de Harpia" loading="lazy" decoding="async">
+                                <span>05</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="5" aria-label="Abrir Arte 06 de Harpia">
+                                <img src="static/images/harpia/kelissa-06.webp" alt="Arte 06 de Harpia" loading="lazy" decoding="async">
+                                <span>06</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="6" aria-label="Abrir Arte 07 de Harpia">
+                                <img src="static/images/harpia/kelissa-07.webp" alt="Arte 07 de Harpia" loading="lazy" decoding="async">
+                                <span>07</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="7" aria-label="Abrir Arte 08 de Harpia">
+                                <img src="static/images/harpia/kelissa-08.webp" alt="Arte 08 de Harpia" loading="lazy" decoding="async">
+                                <span>08</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="8" aria-label="Abrir Arte 09 de Harpia">
+                                <img src="static/images/harpia/kelissa-09.webp" alt="Arte 09 de Harpia" loading="lazy" decoding="async">
+                                <span>09</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="9" aria-label="Abrir Arte 10 de Harpia">
+                                <img src="static/images/harpia/kelissa-10.webp" alt="Arte 10 de Harpia" loading="lazy" decoding="async">
+                                <span>10</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="10" aria-label="Abrir Arte 11 de Harpia">
+                                <img src="static/images/harpia/kelissa-11.webp" alt="Arte 11 de Harpia" loading="lazy" decoding="async">
+                                <span>11</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="11" aria-label="Abrir Arte 12 de Harpia">
+                                <img src="static/images/harpia/kelissa-12.webp" alt="Arte 12 de Harpia" loading="lazy" decoding="async">
+                                <span>12</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="12" aria-label="Abrir Arte 13 de Harpia">
+                                <img src="static/images/harpia/kelissa-13.webp" alt="Arte 13 de Harpia" loading="lazy" decoding="async">
+                                <span>13</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="13" aria-label="Abrir Arte 14 de Harpia">
+                                <img src="static/images/harpia/kelissa-14.webp" alt="Arte 14 de Harpia" loading="lazy" decoding="async">
+                                <span>14</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="14" aria-label="Abrir Arte de Harpia — DeKill">
+                                <img src="static/images/harpia/de-kill.webp" alt="Arte de Harpia — DeKill" loading="lazy" decoding="async">
+                                <span>15</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="15" aria-label="Abrir Arte de Harpia — as meninas">
+                                <img src="static/images/harpia/arte-das-meninas.webp" alt="Arte de Harpia — as meninas" loading="lazy" decoding="async">
+                                <span>16</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="16" aria-label="Abrir Arte de Harpia — Melissa">
+                                <img src="static/images/harpia/melissa.webp" alt="Arte de Harpia — Melissa" loading="lazy" decoding="async">
+                                <span>17</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="17" aria-label="Abrir Arte de Harpia — Killian">
+                                <img src="static/images/harpia/killian.webp" alt="Arte de Harpia — Killian" loading="lazy" decoding="async">
+                                <span>18</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="18" aria-label="Abrir Arte de Harpia — Killian 02">
+                                <img src="static/images/harpia/killian-02.webp" alt="Arte de Harpia — Killian 02" loading="lazy" decoding="async">
+                                <span>19</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-harpia-art data-art-item data-art-index="19" aria-label="Abrir Arte de Harpia — Melissa e Zuri">
+                                <img src="static/images/harpia/melissa-e-zuri.webp" alt="Arte de Harpia — Melissa e Zuri" loading="lazy" decoding="async">
+                                <span>20</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card book-card-prequel reveal" id="juizes">
+                    <div class="book-cover-wrap">
+                        <span class="book-index">P</span>
+                        <img src="static/images/capas/juizes.jpg" alt="Capa do livro Juízes" class="book-cover" loading="lazy" decoding="async">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta"><span>Prequel</span><span>Leia após os volumes anteriores</span></div>
+                        <h3>Juízes</h3>
+                        <p class="book-hook">Antes dos Cisnes, existiam sete universitários e seus fantasmas.</p>
+                        <p>Uma expansão das origens do universo, com múltiplos pontos de vista e um passado sombrio.</p>
+                        <div class="tropes"><span>Dark academia vibe</span><span>Múltiplos POVs</span><span>Passado sombrio</span></div>
+                        <a href="https://www.amazon.com.br/JUÍZES-Mia-Salvani-ebook/dp/B0H8PHMFHF" target="_blank" rel="noopener noreferrer" class="book-link">Comprar na Amazon <span>↗</span></a>
+                    </div>
+
+                    <!-- Galeria: Juízes -->
+                    <div class="harpia-gallery" data-art-gallery data-gallery-name="Juízes" aria-labelledby="juizesGalleryTitle">
+                        <div class="harpia-gallery-heading">
+                            <div>
+                                <span class="entry-label">ARTES DE JUÍZES</span>
+                                <h4 id="juizesGalleryTitle">Antes dos Cisnes.</h4>
+                            </div>
+                            <p>Selecione uma arte para abrir em tela cheia.</p>
+                        </div>
+                        <div class="harpia-art-grid">
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="0" aria-label="Abrir Arte 01 de Juízes — título">
+                                <img src="static/images/juizes/juizes-titulo.webp" alt="Arte 01 de Juízes — título" loading="lazy" decoding="async">
+                                <span>01</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="1" aria-label="Abrir Arte 02 de Juízes — grupo dos Juízes">
+                                <img src="static/images/juizes/juizes-limpa.webp" alt="Arte 02 de Juízes — grupo dos Juízes" loading="lazy" decoding="async">
+                                <span>02</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="2" aria-label="Abrir Arte 03 de Juízes — Cisnes no celeiro">
+                                <img src="static/images/juizes/cisnes-no-celeiro.webp" alt="Arte 03 de Juízes — Cisnes no celeiro" loading="lazy" decoding="async">
+                                <span>03</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="3" aria-label="Abrir Arte 04 de Juízes — foto dos irmãos">
+                                <img src="static/images/juizes/foto-irmaos.webp" alt="Arte 04 de Juízes — foto dos irmãos" loading="lazy" decoding="async">
+                                <span>04</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="4" aria-label="Abrir Arte 05 de Juízes — Chuck e Zuri">
+                                <img src="static/images/juizes/chuck-zuri.webp" alt="Arte 05 de Juízes — Chuck e Zuri" loading="lazy" decoding="async">
+                                <span>05</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="5" aria-label="Abrir Arte 06 de Juízes — Melissa e Liv">
+                                <img src="static/images/juizes/melissa-liv.webp" alt="Arte 06 de Juízes — Melissa e Liv" loading="lazy" decoding="async">
+                                <span>06</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="6" aria-label="Abrir Arte 07 de Juízes — Ivy">
+                                <img src="static/images/juizes/ivy.webp" alt="Arte 07 de Juízes — Ivy" loading="lazy" decoding="async">
+                                <span>07</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="7" aria-label="Abrir Arte 08 de Juízes — Chuck">
+                                <img src="static/images/juizes/chuck.webp" alt="Arte 08 de Juízes — Chuck" loading="lazy" decoding="async">
+                                <span>08</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="8" aria-label="Abrir Arte 09 de Juízes — Declan">
+                                <img src="static/images/juizes/declan.webp" alt="Arte 09 de Juízes — Declan" loading="lazy" decoding="async">
+                                <span>09</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="9" aria-label="Abrir Arte 10 de Juízes — Dex">
+                                <img src="static/images/juizes/dex.webp" alt="Arte 10 de Juízes — Dex" loading="lazy" decoding="async">
+                                <span>10</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="10" aria-label="Abrir Arte 11 de Juízes — Killian">
+                                <img src="static/images/juizes/killian.webp" alt="Arte 11 de Juízes — Killian" loading="lazy" decoding="async">
+                                <span>11</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="11" aria-label="Abrir Arte 12 de Juízes — Melissa">
+                                <img src="static/images/juizes/melissa.webp" alt="Arte 12 de Juízes — Melissa" loading="lazy" decoding="async">
+                                <span>12</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="12" aria-label="Abrir Arte 13 de Juízes — Reid">
+                                <img src="static/images/juizes/reid.webp" alt="Arte 13 de Juízes — Reid" loading="lazy" decoding="async">
+                                <span>13</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="13" aria-label="Abrir Arte 14 de Juízes — Reid no carro">
+                                <img src="static/images/juizes/reid-carro.webp" alt="Arte 14 de Juízes — Reid no carro" loading="lazy" decoding="async">
+                                <span>14</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="14" aria-label="Abrir Arte 15 de Juízes — camisa 17">
+                                <img src="static/images/juizes/camisa-17.webp" alt="Arte 15 de Juízes — camisa 17" loading="lazy" decoding="async">
+                                <span>15</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="15" aria-label="Abrir Arte 16 de Juízes — grupo dos Juízes — versão censurada">
+                                <img src="static/images/juizes/juizes-censurada.webp" alt="Arte 16 de Juízes — grupo dos Juízes — versão censurada" loading="lazy" decoding="async">
+                                <span>16</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item data-art-index="16" aria-label="Abrir Arte 17 de Juízes — grupo dos Juízes — versão sem censura">
+                                <img src="static/images/juizes/juizes-sem-censura.webp" alt="Arte 17 de Juízes — grupo dos Juízes — versão sem censura" loading="lazy" decoding="async">
+                                <span>17</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Corvo: lançamento, sinopse e galeria. -->
+                <article class="book-card corvo-card reveal" id="corvo">
+                    <div class="book-cover-wrap">
+                        <span class="book-index">04</span>
+                        <img src="static/images/capas/corvo.jpg" alt="Capa oficial do livro Corvo, de Mia Salvani" class="book-cover" loading="lazy" decoding="async">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta"><span>Livro 4</span><span>Disponível na Amazon</span></div>
+                        <h3>Corvo</h3>
+                        <p class="book-hook">Um amor antigo. Um namoro de mentira. Segredos que não ficaram no passado.</p>
+                        <p>Quando os segredos de Lara Kerrigan ameaçam os Cisnes, Reid Montgomery decide mentir para os próprios amigos e fingir um relacionamento com ela para protegê-la.</p>
+                        <p><strong>Lançado em 27 de outubro de 2026.</strong></p>
+                        <div class="tropes" aria-label="Gêneros e tropes de Corvo"><span>Dark Romance</span><span>Romance esportivo</span><span>Slow Burn</span><span>Fake Dating</span><span>Ex-melhores amigos</span><span>Quarterback × Nadadora</span><span>Found Family</span><span>New Adult</span></div>
+
+                        <div class="book-purchase-links">
+                            <a href="https://www.amazon.com.br/dp/B0HPGSFCWD" target="_blank" rel="noopener noreferrer" class="book-link">Comprar na Amazon <span>↗</span></a>
+                            <a href="https://open.spotify.com/playlist/0vHM87kHikn6mEQhTD2YjZ" target="_blank" rel="noopener noreferrer" class="book-link spotify-link" aria-label="Ouvir playlist de Corvo no Spotify"><svg class="spotify-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path d="M5.5 9c4.6-1.2 9.2-.8 13.2 1.4M6.4 12.2c4-1 8.1-.6 11.4 1.4M7.2 15.3c3.3-.8 6.6-.4 9.4 1.1" fill="none" stroke="#07150C" stroke-width="1.6" stroke-linecap="round"/></svg><span>Corvo</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Galeria de Corvo. -->
+                    <div class="harpia-gallery" data-art-gallery data-gallery-name="Corvo" aria-labelledby="corvoGalleryTitle">
+                        <div class="harpia-gallery-heading">
+                            <div>
+                                <span class="entry-label">ARTES DE CORVO</span>
+                                <h4 id="corvoGalleryTitle">Reid &amp; Lara.</h4>
+                            </div>
+                            <p>Explore as 12 artes oficiais do livro.</p>
+                        </div>
+                        <div class="harpia-art-grid">
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 01 de Corvo — Lara Kerrigan">
+                                <img src="static/images/corvo/lara.webp" alt="Arte 01 de Corvo — Lara Kerrigan" loading="lazy" decoding="async">
+                                <span>01</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 02 de Corvo — Reid Montgomery">
+                                <img src="static/images/corvo/reid1.webp" alt="Arte 02 de Corvo — Reid Montgomery" loading="lazy" decoding="async">
+                                <span>02</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 03 de Corvo — Reid Montgomery">
+                                <img src="static/images/corvo/reid2.webp" alt="Arte 03 de Corvo — Reid Montgomery" loading="lazy" decoding="async">
+                                <span>03</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 04 de Corvo — Reid e Lara — parte 1">
+                                <img src="static/images/corvo/reidlara1.webp" alt="Arte 04 de Corvo — Reid e Lara — parte 1" loading="lazy" decoding="async">
+                                <span>04</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 05 de Corvo — Reid e Lara — parte 2">
+                                <img src="static/images/corvo/reidlara2.webp" alt="Arte 05 de Corvo — Reid e Lara — parte 2" loading="lazy" decoding="async">
+                                <span>05</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 06 de Corvo — Reid e Lara — parte 3">
+                                <img src="static/images/corvo/reidlara3.webp" alt="Arte 06 de Corvo — Reid e Lara — parte 3" loading="lazy" decoding="async">
+                                <span>06</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 07 de Corvo — Reid e Lara — parte 4">
+                                <img src="static/images/corvo/reidlara4.webp" alt="Arte 07 de Corvo — Reid e Lara — parte 4" loading="lazy" decoding="async">
+                                <span>07</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 08 de Corvo — Reid e Lara — parte 5">
+                                <img src="static/images/corvo/reidlara5.webp" alt="Arte 08 de Corvo — Reid e Lara — parte 5" loading="lazy" decoding="async">
+                                <span>08</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 09 de Corvo — Reid e Lara — parte 6">
+                                <img src="static/images/corvo/reidlara6.webp" alt="Arte 09 de Corvo — Reid e Lara — parte 6" loading="lazy" decoding="async">
+                                <span>09</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 10 de Corvo — Reid e Lara — parte 7">
+                                <img src="static/images/corvo/reidlara7.webp" alt="Arte 10 de Corvo — Reid e Lara — parte 7" loading="lazy" decoding="async">
+                                <span>10</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 11 de Corvo — Reid e Lara — parte 8">
+                                <img src="static/images/corvo/reidlara8.webp" alt="Arte 11 de Corvo — Reid e Lara — parte 8" loading="lazy" decoding="async">
+                                <span>11</span>
+                            </button>
+                            <button class="harpia-art-card" type="button" data-art-item aria-label="Abrir arte 12 de Corvo — Reid e Lara — parte 9">
+                                <img src="static/images/corvo/reidlara9.webp" alt="Arte 12 de Corvo — Reid e Lara — parte 9" loading="lazy" decoding="async">
+                                <span>12</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- Relações -->
+        <section class="relations-section section-shell" id="relacoes">
+            <div class="section-heading reveal">
+                <p class="eyebrow">QUEM SE METEU COM QUEM?</p>
+                <h2>Relações dos Cisnes</h2>
+                <p>Escolha um personagem para destacar suas conexões. As cores seguem a legenda do quadro original.</p>
+            </div>
+
+            <div class="relations-layout reveal">
+                <div class="relations-reference">
+                    <img src="static/images/relacoes-cisnes.png" alt="Quadro de relações dos personagens de Cisnes de New York" loading="lazy" decoding="async">
+                    <span>Referência das relações</span>
+                </div>
+
+                <div class="relations-panel">
+                    <!-- Personagens -->
+                    <div class="character-grid" id="characterGrid">
+                        <button type="button" data-character="declan">Declan St Clair</button>
+                        <button type="button" data-character="killian">Killian Belrose</button>
+                        <button type="button" data-character="dex">Dex Belrose</button>
+                        <button type="button" data-character="reid">Reid Montgomery</button>
+                        <button type="button" data-character="chuck">Chuck Ashford</button>
+                        <button type="button" data-character="charlotte">Charlotte Sparks</button>
+                        <button type="button" data-character="melissa">Melissa Jang</button>
+                        <button type="button" data-character="olivia">Olivia Cornélia Valmont</button>
+                        <button type="button" data-character="lara">Lara Kerrigan</button>
+                        <button type="button" data-character="zuri">Zuri Mayosi Mcfarland</button>
+                    </div>
+
+                    <div class="relation-legend" aria-label="Legenda das relações">
+                        <span><i class="rel-dot frenemies"></i>Frenemies</span>
+                        <span><i class="rel-dot besties"></i>Besties</span>
+                        <span><i class="rel-dot hooked"></i>Já se pegaram</span>
+                        <span><i class="rel-dot exes"></i>Ex-namorados</span>
+                        <span><i class="rel-dot fighting"></i>Brigados</span>
+                        <span><i class="rel-dot dating"></i>Em um relacionamento</span>
+                    </div>
+
+                    <div class="relation-result" id="relationResult" aria-live="polite">
+                        <strong>Selecione um Cisne</strong>
+                        <p>As relações desse personagem aparecem aqui.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Jojômetro -->
+        <section class="jojometro-section section-shell" id="jojometro">
+            <div class="section-heading reveal">
+                <p class="eyebrow">A UNIDADE OFICIAL DE ALTURA</p>
+                <h2>Jojômetro — você, Jojinha e os meninos</h2>
+                <p>Uma Jojinha mede exatamente <strong>1,50 m</strong>. Compare sua altura com a Jojinha e os personagens da Mia.</p>
+            </div>
+
+            <div class="jojometro-card reveal">
+                <div class="jojometro-controls">
+                    <label for="jojometroAltura">Sua altura</label>
+                    <div class="jojometro-input-row">
+                        <input id="jojometroAltura" type="text" inputmode="decimal" placeholder="Ex.: 1,78 ou 178" maxlength="6" autocomplete="off">
+                        <button class="btn btn-primary" id="jojometroCalcular" type="button">Calcular</button>
+                    </div>
+                    <p class="jojometro-help">Pode escrever em metros ou centímetros.</p>
+                    <div class="jojometro-result" id="jojometroResultado" aria-live="polite">
+                        <strong>Digite sua altura para descobrir.</strong>
+                        <span>A ciência precisa dessa informação.</span>
+                    </div>
+                    <div class="brincadeira-actions">
+                        <button class="btn btn-secondary" id="jojometroCompartilhar" type="button" disabled>Compartilhar resultado</button>
+                        <button class="btn btn-secondary" id="jojometroCopiar" type="button" disabled>Copiar resultado</button>
+                    </div>
+                </div>
+
+                <div class="jojometro-chart" id="jojometroChart" aria-label="Comparador visual de altura">
+                    <div class="jojometro-scale" aria-hidden="true">
+                        <span style="bottom:0%">0</span><span style="bottom:8.333%">25</span><span style="bottom:16.67%">50</span><span style="bottom:25%">75</span><span style="bottom:33.33%">100</span><span style="bottom:41.67%">125</span><span style="bottom:50%">150</span><span style="bottom:58.33%">175</span><span style="bottom:66.67%">200</span><span style="bottom:75%">225</span><span style="bottom:83.33%">250</span><span style="bottom:91.67%">275</span><span style="bottom:100%">300 cm</span>
+                    </div>
+                    <div class="jojometro-line" aria-hidden="true"></div>
+                    <div class="jojometro-person jojometro-jojo">
+                        <span class="jojometro-height">150 cm</span>
+                        <div class="jojometro-silhouette jojometro-silhouette-jojo" style="height:50%" aria-hidden="true"><span class="jojometro-figure"></span></div>
+                        <strong>JOJINHA</strong><small>1,50 m</small>
+                    </div>
+                    <div class="jojometro-person jojometro-reader">
+                        <span class="jojometro-height" id="jojometroAlturaLabel">? cm</span>
+                        <div class="jojometro-silhouette jojometro-silhouette-reader" id="jojometroPessoa" aria-hidden="true"><span class="jojometro-figure"></span></div>
+                        <strong>VOCÊ</strong><small id="jojometroIndice">Informe sua altura</small>
+                    </div>
+                    <div class="jojometro-person jojometro-boy-visual">
+                        <span class="jojometro-height" id="jojometroBoyHeight">192 cm</span>
+                        <div class="jojometro-silhouette jojometro-silhouette-boy" id="jojometroBoySilhouette" style="height:64%" aria-hidden="true"><span class="jojometro-figure"></span></div>
+                        <strong id="jojometroBoyVisualName">DEX</strong><small id="jojometroBoyVisualMeters">1,92 m</small>
+                    </div>
+                </div>
+            </div>
+                <div class="jojometro-boys" aria-label="Comparador dos meninos">
+                    <h3>Escolha um dos meninos</h3>
+                    <div class="jojometro-boy-options" role="group" aria-label="Personagem para comparar">
+                        <button type="button" class="jojometro-boy-option is-selected" data-boy="Dex" aria-pressed="true"><img src="static/images/juizes/dex.webp" alt="" loading="lazy"><span>Dex<small>1,92 m</small></span></button>
+                        <button type="button" class="jojometro-boy-option" data-boy="Declan" aria-pressed="false"><img src="static/images/juizes/declan.webp" alt="" loading="lazy"><span>Declan<small>1,96 m</small></span></button>
+                        <button type="button" class="jojometro-boy-option" data-boy="Killian" aria-pressed="false"><img src="static/images/juizes/killian.webp" alt="" loading="lazy"><span>Killian<small>1,92 m</small></span></button>
+                        <button type="button" class="jojometro-boy-option" data-boy="Reid" aria-pressed="false"><img src="static/images/juizes/reid.webp" alt="" loading="lazy"><span>Reid<small>1,98 m</small></span></button>
+                        <button type="button" class="jojometro-boy-option" data-boy="Chuck" aria-pressed="false"><img src="static/images/juizes/chuck.webp" alt="" loading="lazy"><span>Chuck<small>1,89 m</small></span></button>
+                    </div>
+                    <div class="jojometro-boy-result" id="jojometroBoyResult" aria-live="polite">Digite sua altura para comparar com Dex.</div>
+                    <p class="jojometro-art-note">Artes oficiais da Mia na seleção; silhueta masculina enviada para o comparador. Alturas em escala com a Jojinha.</p>
+                </div>
+        </section>
+
+        <!-- Marielei -->
+        <section class="marielizador-section section-shell" id="marielizador">
+            <div class="section-heading reveal">
+                <p class="eyebrow">CIÊNCIA DE PROCEDÊNCIA DUVIDOSA</p>
+                <h2>Descubra que Mariel você é</h2>
+                <p>Digite seu nome. O Marielei sorteia uma variante oficial e mistura com você.</p>
+            </div>
+            <div class="marielizador-card reveal">
+                <div class="marielizador-controls">
+                    <label for="marielNome">Seu nome</label>
+                    <div class="marielizador-input-row">
+                        <input id="marielNome" type="text" placeholder="Ex.: Mia Salvani" maxlength="80" autocomplete="name">
+                        <button class="btn btn-primary" id="marielizar" type="button">Marielei</button>
+                    </div>
+                    <p class="marielizador-help">Cada clique pode sortear uma Mariel diferente.</p>
+                </div>
+                <div class="marielizador-result" id="marielResultado" aria-live="polite">
+                    <span class="marielizador-kicker">SEU RESULTADO</span>
+                    <strong>Quem é você no multiverso da Mariel?</strong>
+                    <span>Digite seu nome para descobrir.</span>
+                </div>
+                <div class="brincadeira-actions">
+                    <button class="btn btn-secondary" id="marielCompartilhar" type="button" disabled>Compartilhar minha Mariel</button>
+                    <button class="btn btn-secondary" id="marielCopiar" type="button" disabled>Copiar resultado</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre a autora -->
+        <section class="about-section section-shell" id="sobre">
+            <div class="section-heading">
+                <p class="eyebrow">QUEM CRIOU ESSE CAOS?</p>
+                <h2>Sobre a Mia</h2>
+            </div>
+
+            <div class="about-author">
+                <div class="about-author-photo">
+                    <img src="static/images/foto-nova.png" alt="Retrato de Mia Salvani, autora de Cisnes de New York" loading="lazy" decoding="async">
+                </div>
+                <div class="about-author-copy">
+                    <h3>Mia Salvani</h3>
+                    <p>Viciada em Monster, conhecida como Sabrina Carpenter cabeçuda e cronicamente on-line. Se depender dela, nenhum ilustrador jamais ficará sem emprego.</p>
+                    <p>Criadora do grupo de amigos mais problemático de New York e dona de um Gengar.</p>
+                    <a class="book-link" href="https://www.instagram.com/misalvani/" target="_blank" rel="noopener noreferrer">@misalvani no Instagram <span>↗</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipe -->
+        <section class="team-section section-shell" id="equipe">
+            <div class="section-heading reveal">
+                <p class="eyebrow">BASTIDORES</p>
+                <h2>Equipe Mia Salvani</h2>
+            </div>
+
+            <div class="team-grid">
+                <a href="https://www.instagram.com/misalvani/" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                    <img src="static/images/mia.png" alt="Mia Salvani" loading="lazy" decoding="async">
+                    <div><strong>Mia Salvani</strong><span>Autora</span></div>
+                </a>
+                <a href="https://www.instagram.com/mfraitag/" target="_blank" rel="noopener noreferrer" class="team-card team-gengar reveal">
+                    <img src="static/images/gengar.png" alt="Gengar da Mia" loading="lazy" decoding="async">
+                    <div><strong>Gengar da Mia</strong><span>Assombração oficial</span></div>
+                </a>
+                <a href="https://www.instagram.com/leiturasdajordana/" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                    <img src="static/images/jojo.jpg" alt="Jojo" loading="lazy" decoding="async">
+                    <div><strong>Jojo</strong><span>Equipe</span></div>
+                </a>
+                <a href="https://www.instagram.com/literandisse/" target="_blank" rel="noopener noreferrer" class="team-card reveal">
+                    <img src="static/images/marissol.png" alt="Marissol" loading="lazy" decoding="async">
+                    <div><strong>Marissol</strong><span>Equipe</span></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="final-cta" aria-label="Novidades em breve">
+            <button class="coming-soon-card reveal" id="comingSoonReveal" type="button" aria-pressed="false" aria-label="Revelar novidade">
+                <span class="eyebrow" id="comingSoonEyebrow">A CURIOSIDADE MATOU O GATO</span>
+                <h2 id="comingSoonTitle">NÃO CLIQUE.</h2>
+                <span class="coming-soon-hint" id="comingSoonHint">Você foi avisado.</span>
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Mia Salvani & Equipe. Todos os direitos reservados.</p>
+        
+        <button id="summonGengar" type="button" class="footer-secret" title="Não aperte.">◉</button>
+    </footer>
+
+    <button id="goodMorningGengar" type="button" class="gengar-good-morning">Peça bom dia para o Gengar</button>
+
+    <!-- Lightbox das galerias -->
+    <div class="art-lightbox" id="artLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visualizador das artes dos livros">
+        <button class="art-lightbox-close" id="artLightboxClose" type="button" aria-label="Fechar galeria">×</button>
+        <button class="art-lightbox-nav art-lightbox-prev" id="artLightboxPrev" type="button" aria-label="Arte anterior">←</button>
+        <figure class="art-lightbox-figure">
+            <img id="artLightboxImage" src="" alt="">
+            <figcaption>
+                <span id="artLightboxCaption"></span>
+                <small id="artLightboxCounter"></small>
+            </figcaption>
+        </figure>
+        <button class="art-lightbox-nav art-lightbox-next" id="artLightboxNext" type="button" aria-label="Próxima arte">→</button>
+    </div>
+</body>
+</html>
