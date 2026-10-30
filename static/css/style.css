@@ -1706,8 +1706,8 @@ body.lightbox-open {
     width:100%;
     height:100%;
     background:#a7b9dc;
-    -webkit-mask:url('/static/images/jojometro/silhueta-altura.png') center bottom / contain no-repeat;
-    mask:url('/static/images/jojometro/silhueta-altura.png') center bottom / contain no-repeat;
+    -webkit-mask:url('../images/jojometro/silhueta-altura.png') center bottom / contain no-repeat;
+    mask:url('../images/jojometro/silhueta-altura.png') center bottom / contain no-repeat;
 }
 .jojometro-silhouette-reader .jojometro-figure { background:#769dff; }
 .jojometro-silhouette-jojo .jojometro-figure { background:#9fb2d8; }
@@ -1804,8 +1804,8 @@ body.gengar-shake-v61 main, body.gengar-shake-v61 header, body.gengar-shake-v61 
 .jojometro-silhouette-boy { width:min(100%,104px); }
 .jojometro-silhouette-boy .jojometro-figure {
     background:#b58de9;
-    -webkit-mask:url('/static/images/jojometro/silhueta-masculina.png') center bottom / contain no-repeat;
-    mask:url('/static/images/jojometro/silhueta-masculina.png') center bottom / contain no-repeat;
+    -webkit-mask:url('../images/jojometro/silhueta-masculina.png') center bottom / contain no-repeat;
+    mask:url('../images/jojometro/silhueta-masculina.png') center bottom / contain no-repeat;
 }
 .jojometro-boy-visual .jojometro-height { bottom:64%; }
 
